@@ -16,12 +16,12 @@ Where **/av** is the call to action **member=** is the param, **@username** is t
 
 Its recover your avatar and then we can transform it on the fly with many options:
 
-- [x] [Sepia](#1-sepia-effect)
-- [x] [Color Silhouette](#2-color-silhouette)
-- [x] [Whitify](#3-whitify)
-- [x] [Black'n'White] (#4-blacknwhite)
-- [x] [High_Contrast] (#5-high-contrast)
-- [x] [Colorful] (#6-colorful)
+- [x] [Sepia](#sepia-effect-custom-id)
+- [x] [Color Silhouette](#color-silhouette-custom-id)
+- [x] [Whitify](#whitify-custom-id)
+- [x] [Black'n'White](#blacknwhite-custom-id)
+- [x] [High_Contrast](#high-contrast-custom-id)
+- [x] [Colorful](#colorful-custom-id)
 
 Any interaction Have the form drag'n'drop [^7] option with any command You call with the specific argument
 
@@ -33,7 +33,7 @@ Example with my discord username =="𝕯𝖎𝖊𝖌𝖆𝖙𝖔#4880"==, since 
 
 <image src="https://cdn.discordapp.com/attachments/1075776011209277510/1080865285365579877/image.png" />
 
-## [^1]: Sepia Effect
+## Sepia Effect {#custom-id}
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -43,7 +43,7 @@ This feature use Drag'n'drop to upload files in the input of the Discord chat, t
 
 Where **/sepia_effect** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
 
-## [^2]: Color Silhouette
+## Color Silhouette {#custom-id}
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -65,7 +65,7 @@ And with the Pink Choice we obtain:
 
 <image src='https://res.cloudinary.com/diegato/image/upload/e_blackwhite:50/co_rgb:D867B4,e_colorize:50/e_brightness:30/v1/Bot/9dc35c25870a23b2020446d5ef76c94b.png.png'>
 
-## [^3]: Whitify
+## Whitify {#custom-id}
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -75,7 +75,7 @@ This feature use Drag'n'drop to upload files in the input of the Discord chat, t
 
 Where **/sepia_effect** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
 
-## [^4]: Black'n'White
+## Black'n'White {#custom-id}
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -85,7 +85,7 @@ This feature use Drag'n'drop to upload files in the input of the Discord chat, t
 
 Where **/black_and_white** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
 
-## [^5]: High Contrast
+## High Contrast {#custom-id}
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -95,7 +95,7 @@ This feature use Drag'n'drop to upload files in the input of the Discord chat, t
 
 Where **/high_contrast** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
 
-## [^6]: Colorful
+## Colorful {#custom-id}
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
