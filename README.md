@@ -64,3 +64,13 @@ And a quick example of the results where we drop this image:
 And with the Pink Choice we obtain:
 
 <image src='https://res.cloudinary.com/diegato/image/upload/e_blackwhite:50/co_rgb:D867B4,e_colorize:50/e_brightness:30/v1/Bot/9dc35c25870a23b2020446d5ef76c94b.png.png'>
+
+## [^3] Whitify
+
+This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
+
+````
+/whitify ```drag: FileAttachment```, ```description: str | None```
+````
+
+Where **/sepia_effect** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
