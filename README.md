@@ -33,7 +33,7 @@ Example with my discord username =="𝕯𝖎𝖊𝖌𝖆𝖙𝖔#4880"==, since 
 
 <image src"https://cdn.discordapp.com/attachments/1075776011209277510/1080865285365579877/image.png" />
 
-## [^1] Sepia Effect
+## [^1]: Sepia Effect
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -43,7 +43,7 @@ This feature use Drag'n'drop to upload files in the input of the Discord chat, t
 
 Where **/sepia_effect** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
 
-## [^2] Color Silhouette
+## [^2]: Color Silhouette
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
@@ -65,7 +65,7 @@ And with the Pink Choice we obtain:
 
 <image src='https://res.cloudinary.com/diegato/image/upload/e_blackwhite:50/co_rgb:D867B4,e_colorize:50/e_brightness:30/v1/Bot/9dc35c25870a23b2020446d5ef76c94b.png.png'>
 
-## [^3] Whitify
+## [^3]: Whitify
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
