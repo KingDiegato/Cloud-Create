@@ -23,7 +23,7 @@ Its recover your avatar and then we can transform it on the fly with many option
 - [x] [High_Contrast](#high-contrast)
 - [x] [Colorful](#colorful)
 
-Any interaction Have the form drag'n'drop [^7] option with any command You call with the specific argument
+Any interaction Have the form drag'n'drop [^1] option with any command You call with the specific argument
 
 ### Important!!!
 

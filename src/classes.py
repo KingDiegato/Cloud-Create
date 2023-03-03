@@ -1,0 +1,409 @@
+import discord
+import cloudinary
+
+from modules.module import Link, Force
+
+from discord import Interaction
+
+
+class SilhouettePanel(discord.ui.View):
+    def __init__(self, username):
+        super().__init__()
+        self.username = username
+
+    @discord.ui.button(label='Purple', style=discord.ButtonStyle.primary, row=1)
+    async def purple_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#7038A1", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Yellow', style=discord.ButtonStyle.primary, row=1)
+    async def yellow_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#9C9342", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Red', style=discord.ButtonStyle.primary, row=1)
+    async def red_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#CF2C2C", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Lime', style=discord.ButtonStyle.primary, row=1)
+    async def lime_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#5EA031", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Green', style=discord.ButtonStyle.primary, row=2)
+    async def green_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#0B7E29", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Cyan', style=discord.ButtonStyle.primary, row=2)
+    async def cyan_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#39C0B5", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Pink', style=discord.ButtonStyle.primary, row=2)
+    async def pink_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#D867B4", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Wine', style=discord.ButtonStyle.primary, row=2)
+    async def wine_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#862044", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            title=f'Silhouette purple edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+
+class TransformAvView(discord.ui.View):
+    #! Huge Class!!!!!
+    def __init__(self, username):
+        super().__init__()
+        self.username = username
+
+    # ? Row Button = 1
+    @discord.ui.button(label='Whitify Avatar', style=discord.ButtonStyle.primary, row=1)
+    async def Whitify_av(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_link = Link()
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:-30"}, {'effect': "brightness:30"}])
+        embed_transformed = discord.Embed(
+            title=f'Here is it {self.username}'
+        )
+        embed_transformed.set_image(url=image_transform)
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        await interaction.response.send_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='High Contrast', style=discord.ButtonStyle.primary, row=1)
+    async def High_contrast_av(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_link = Link()
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "contrast:50"}, {'effect': "saturation:-40"}])
+        embed_transformed = discord.Embed(
+            title=f'Here is it {self.username}'
+        )
+        embed_transformed.set_image(url=image_transform)
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        await interaction.response.send_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Sepia', style=discord.ButtonStyle.primary, row=1)
+    async def Sepia_effect_av(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_link = Link()
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(effect="sepia")
+        embed_transformed = discord.Embed(
+            title=f'Here is it {self.username}'
+        )
+        embed_transformed.set_image(url=image_transform)
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        await interaction.response.send_message(embed=embed_transformed, view=download_link)
+
+    # ? Row Button = 2
+    @discord.ui.button(label='Black and White', style=discord.ButtonStyle.primary, row=2)
+    async def Black_and_white_effect_av(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_link = Link()
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "grayscale"}])
+        embed_transformed = discord.Embed(
+            title=f'Here is it {self.username}'
+        )
+        embed_transformed.set_image(url=image_transform)
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        await interaction.response.send_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Colorful Avatar', style=discord.ButtonStyle.primary, row=2)
+    async def Colorful_effect_av(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_link = Link()
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:30"}, {'effect': "brightness:10"}])
+        embed_transformed = discord.Embed(
+            title=f'Here is it {self.username}'
+        )
+        embed_transformed.set_image(url=image_transform)
+        download_link.add_item(discord.ui.Button(label='Download Transformed',
+                                                 style=discord.ButtonStyle.url, url=image_transform))
+        await interaction.response.send_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Silhouette Avatar', style=discord.ButtonStyle.primary, row=2)
+    async def Silhouette_panel(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "brightness:30"}, {'effect': "blackwhite:50"}])
+        silhouette_view = SilhouettePanel(self.username)
+        embed_transformed = discord.Embed(
+            title=f'Silhouette black edition: {self.username}',
+            description='You can change the color alike the /color_silhouette command, Try it! 🌟'
+        )
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.send_message(embed=embed_transformed, view=silhouette_view)
+
+
+class AvView(discord.ui.View):
+    '''
+    View Pannel for the Avatar Transformation
+    Button Steps Function for create Transformation in the Avatar
+    '''
+
+    def __init__(self, name):
+        super().__init__()
+        self.name = name
+
+    @discord.ui.button(label='Yes! transform it ✨', style=discord.ButtonStyle.primary)
+    async def av_select_transform(self, interaction: Interaction, button: discord.ui.Button):
+        av_username = self.name
+        transformation_view = TransformAvView(av_username)
+        try:
+            print(av_username)
+            embed_prev_img = discord.Embed(
+                title=f'Prepare to transform Your Avatar {av_username}',
+                description='Select any options and see inmediately results'
+            )
+            image_transform = cloudinary.CloudinaryImage(
+                f'Bot/{av_username}q:av_up').build_url(transformation=[{'effect': "blur:1500"}])
+            embed_prev_img.set_image(url=image_transform)
+
+            await interaction.response.send_message(embed=embed_prev_img, view=transformation_view)
+
+        except:
+            print("exception error: Command Not Found")
+            await interaction.response.send_message(content='Command not Found, Please Try Again in a few seconds')
+
+
+class BlackAndWhite(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def b_and_w(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='B&W Effect Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(effect="grayscale")
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class EmojiSizing(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def emoji_sizing(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='''
+                          Improved picture Powered by Cloudinary 🎉✨, 
+                          Now its can be use perfect for an emoji in discord
+                        ''',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "improve:indoor:50"}, {'gravity': "auto:face", 'height': 128, 'width': 128, 'crop': "lfill"}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class SepiaEffect(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def sepia_effect(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='Sepia Effect Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(effect="sepia")
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class HighContrast(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def high_contrast_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='Contrast Improved Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:50"}, {'effect': "saturation:-40"}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class WhiteColor(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def white_color_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='White Color Effect Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:-30"}, {'effect': "brightness:30"}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class ColorFul(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def colorful_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='Colorful picture Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:30"}, {'effect': "brightness:10"}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class BgRemoval(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def bg_removal_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='''We are Processing the transformation, Please Wait...''',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "background_removal"}])
+        image_blur = cloudinary.CloudinaryImage(
+            f"bot/{self.file_name}.png").build_url(transformation=[{'effect': "blur:1500"}])
+        link_view = Link() and Force(image_tag)
+        embed.set_image(url=image_blur)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class Silhouette(discord.ui.View):
+    def __init__(self, file_name, choice_color):
+        super().__init__()
+        self.file_name = file_name
+        self.choice_color = choice_color
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def colorful_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='''Colorful picture Powered by Cloudinary 🎉✨
+                           **Note:** Its works Better with a person picture or with a solid color background or transparent background
+            ''',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "blackwhite:50"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
