@@ -19,9 +19,9 @@ Its recover your avatar and then we can transform it on the fly with many option
 - [x] [Sepia](#1-sepia-effect)
 - [x] [Color Silhouette](#2-color-silhouette)
 - [x] [Whitify](#3-whitify)
-- [x] [Black'n'White] [^4](#4-blacknwhite)
-- [x] [High_Contrast] [^5](#5-high-contrast)
-- [x] [Colorful] [^6](#6-colorful)
+- [x] [Black'n'White] (#4-blacknwhite)
+- [x] [High_Contrast] (#5-high-contrast)
+- [x] [Colorful] (#6-colorful)
 
 Any interaction Have the form drag'n'drop [^7] option with any command You call with the specific argument
 
