@@ -5,7 +5,7 @@ import dotenv
 
 # Local Imports
 # ==========================================================================================================================
-from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor, ColorFul, BgRemoval, Silhouette, TextOverlay, LayoutFor
+from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor, ColorFul, BgRemoval, Silhouette, TextOverlay, LayoutFor, Cartoonify, ColorBurn
 from embeds.helper import Command_Embeded
 from modules.module import Link, Pagination
 # ==========================================================================================================================
@@ -57,6 +57,10 @@ bot = commands.Bot(command_prefix='$', intents=intents)  # Prefijo del bot
 
 @bot.event
 async def on_ready():
+    print('='*40)
+    print('Online!')
+    print('='*40)
+    await bot.tree.sync()
     await bot.change_presence(activity=discord.Game('Crear Imagenes muy Geniales'))
 
 
@@ -64,7 +68,7 @@ async def on_ready():
 @bot.command()
 async def init(ctx):
     await bot.tree.sync()
-    await ctx.reply('Listo!')
+    await ctx.reply('Done!')
 
 
 @bot.tree.command(name='pineado', description='Llama a una persona por su tag')
@@ -140,7 +144,7 @@ async def sepia_effect(interaction: Interaction, drag: discord.message.Attachmen
         view = Link() and SepiaEffect(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -176,7 +180,7 @@ async def black_and_white(interaction: Interaction, drag: discord.message.Attach
         view = Link() and BlackAndWhite(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -207,7 +211,7 @@ async def high_contrast(interaction: Interaction, drag: discord.message.Attachme
         view = Link() and HighContrast(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -238,7 +242,7 @@ async def whitify(interaction: Interaction, drag: discord.message.Attachment, de
         view = Link() and WhiteColor(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -269,7 +273,7 @@ async def colorful(interaction: Interaction, drag: discord.message.Attachment, d
         view = Link() and ColorFul(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -283,6 +287,52 @@ async def colorful(interaction: Interaction, drag: discord.message.Attachment, d
         await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
 
 # End of Colorful Effect Command
+
+
+#! Cartoonify
+@bot.tree.command(name='cartoonify', description='Upload an image and create a Cartonify effect in a photo')
+@app_commands.describe(drag="drag 'n' drop a file or upload from directory", description="a description for the image")
+async def cartoonify(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
+    try:
+        file_name = drag.filename
+        view = Link() and Cartoonify(file_name)
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description=description or 'Prepare for edit the next Image:',
+            color=discord.Color.random(),
+        )
+        embed.set_image(url='{}'.format(drag))
+        embed.set_thumbnail(url=interaction.user.avatar)
+        upload(drag.url, public_id=f'Bot/{file_name}')
+
+        view.add_item(discord.ui.Button(label='See on the Browser',
+                                        style=discord.ButtonStyle.url, url='{}'.format(drag)))
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+    except:
+        await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
+
+
+#! ColorBurn
+@bot.tree.command(name='color_burn', description='Upload an image and create a Cartonify effect in a photo')
+@app_commands.describe(drag="drag 'n' drop a file or upload from directory", description="a description for the image")
+async def color_burn(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
+    try:
+        file_name = drag.filename
+        view = Link() and ColorBurn(file_name)
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description=description or 'Prepare for edit the next Image:',
+            color=discord.Color.random(),
+        )
+        embed.set_image(url='{}'.format(drag))
+        embed.set_thumbnail(url=interaction.user.avatar)
+        upload(drag.url, public_id=f'Bot/{file_name}')
+
+        view.add_item(discord.ui.Button(label='See on the Browser',
+                                        style=discord.ButtonStyle.url, url='{}'.format(drag)))
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+    except:
+        await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
 
 
 #! Layout
@@ -323,7 +373,7 @@ async def background_remove(interaction: Interaction, drag: discord.message.Atta
         view = Link() and BgRemoval(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -365,7 +415,7 @@ async def color_silhouette(interaction: Interaction, drag: discord.message.Attac
     view = Link() and Silhouette(file_name, choice_color.value)
     embed = discord.Embed(
         title=f'Picture fetched by: {interaction.user}',
-        description=description,
+        description=description or 'Prepare for edit the next Image:',
         color=discord.Color.random(),
     )
     print(drag.content_type)
@@ -388,7 +438,7 @@ async def discord_emoji_resize(interaction: Interaction, drag: discord.message.A
         view = Link() and EmojiSizing(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description,
+            description=description or 'Prepare for edit the next Image:',
             color=discord.Color.random(),
         )
         print(drag.content_type)
@@ -450,9 +500,8 @@ async def text_overlay(interaction: Interaction, drag: discord.message.Attachmen
                                     style=discord.ButtonStyle.url, url='{}'.format(drag)))
     await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
+
 #! Help Global Helps
-
-
 @bot.tree.command(name='help', description='Help About The usage of the bot')
 async def help(interaction: Interaction):
     embed_help = discord.Embed(

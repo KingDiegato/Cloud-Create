@@ -363,6 +363,48 @@ class ColorFul(discord.ui.View):
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
+class Cartoonify(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def cartoon_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='Cartonify picture Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(effect="cartoonify")
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class ColorBurn(discord.ui.View):
+    def __init__(self, file_name):
+        super().__init__()
+        self.file_name = file_name
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def burn_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='Burning picture Powered by Cloudinary 🎉✨',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(effect="art:zorro")
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
 class BgRemoval(discord.ui.View):
     def __init__(self, file_name):
         super().__init__()
@@ -403,7 +445,7 @@ class Silhouette(discord.ui.View):
             color=discord.Color.random(),
         )
         image_tag = cloudinary.CloudinaryImage(
-            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "blackwhite:50"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "blackwhite:39"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag))
