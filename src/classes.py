@@ -455,6 +455,7 @@ class LayoutFor(discord.ui.View):
         download_view = Link()
         embed_layout = discord.Embed(
             title='Facebook Layout Powered By Cloudinary ✨',
+            description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
@@ -493,6 +494,7 @@ class LayoutFor(discord.ui.View):
         download_view = Link()
         embed_layout = discord.Embed(
             title='Linkedin Layout Powered By Cloudinary ✨',
+            description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
@@ -530,6 +532,7 @@ class LayoutFor(discord.ui.View):
         download_view = Link()
         embed_layout = discord.Embed(
             title='Twitter Layout Powered By Cloudinary ✨',
+            description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
@@ -568,6 +571,7 @@ class LayoutFor(discord.ui.View):
         download_view = Link()
         embed_layout = discord.Embed(
             title='Discord Layout Powered By Cloudinary ✨',
+            description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
