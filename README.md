@@ -30,9 +30,11 @@ By accessing to the user Avatar, this action is called with the next command in 
 
 #### - [Colorful](#colorful-1)
 
-#### - [Error Handling](#error-handling-1)
+#### - [Background Remove](#background-remove-1)
 
-#### - [Background Remove]
+#### - [Cartoonify](#cartoonify-1)
+
+#### - [Error Handling](#error-handling-1)
 
 ---
 
@@ -166,6 +168,20 @@ After the call to action you can set the option of the social media you want to 
 <image src='https://cdn.discordapp.com/attachments/886862316509999114/1081605841154744320/image.png' />
 
 By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually
+
+## Cartoonify
+
+This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
+
+```
+/cartoonify drag: FileAttachment, description: str | None
+```
+
+Where **/cartoonify** is the call to action **drag** is the file form directory or clipboard and **description** is a little words to describe the image, _this param is optional_
+
+#### Example:
+
+<image src="https://res.cloudinary.com/diegato/image/upload/e_cartoonify/v1/Bot/miduNoBg.png.png" />
 
 ## Background Remove
 
