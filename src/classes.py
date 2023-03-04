@@ -377,7 +377,7 @@ class Cartoonify(discord.ui.View):
             color=discord.Color.random(),
         )
         image_tag = cloudinary.CloudinaryImage(
-            f"Bot/{self.file_name}.png").build_url(effect="cartoonify")
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:-30"}, {'effect': "cartoonify"}, {'effect': "saturation:-30"}, {'effect': "brightness:10"}, {'effect': "improve:outdoor:50"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag))
