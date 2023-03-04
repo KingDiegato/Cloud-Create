@@ -1,5 +1,6 @@
 import discord
 import cloudinary
+import asyncio
 
 from modules.module import Link, Force
 
@@ -265,7 +266,7 @@ class EmojiSizing(discord.ui.View):
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
             description='''
-                          Improved picture Powered by Cloudinary 🎉✨, 
+                          Improved picture Powered by Cloudinary 🎉✨,
                           Now its can be use perfect for an emoji in discord
                         ''',
             color=discord.Color.random(),
@@ -407,3 +408,193 @@ class Silhouette(discord.ui.View):
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag))
         await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class TextOverlay(discord.ui.View):
+    def __init__(self, file_name, font, text, font_size, position, color, effect):
+        super().__init__()
+        self.file_name = file_name
+        self.font = font
+        self.text = text
+        self.font_size = font_size
+        self.position = position
+        self.color = color
+        self.effect = effect
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def colorful_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        text_overlay = cloudinary.CloudinaryImage(
+            f"Colors/Color_{self.color}_{self.effect}").build_url(overlay={'font_family': f'{self.font}', 'font_size': self.font_size, 'font_weight': "bold", 'text': f'{self.text}'.replace(" ", "%20")}, flags="cutter")
+        embed = discord.Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description='''Colorful picture Powered by Cloudinary 🎉✨
+                           **Note:** Its works Better with a person picture or with a solid color background or transparent background
+            ''',
+            color=discord.Color.random(),
+        )
+        print(text_overlay)
+        await asyncio.sleep(2)
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'overlay': {'url': f'{text_overlay}'}}, {'flags': "layer_apply", 'gravity': self.position, 'y': 20}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class LayoutFor(discord.ui.View):
+    def __init__(self, user_name, pfp_drag, banner_drag):
+        super().__init__()
+        self.user_name = user_name
+        self.pfp_drag = pfp_drag
+        self.banner_drag = banner_drag
+
+    @discord.ui.button(label='Facebook! ✨', style=discord.ButtonStyle.primary, row=1)
+    async def facebook_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_view = Link()
+        embed_layout = discord.Embed(
+            title='Facebook Layout Powered By Cloudinary ✨',
+            color=discord.Color.random()
+        )
+        banner_result = cloudinary.CloudinaryImage(
+            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+                {'gravity': "auto", 'height': 315, 'width': 851, 'crop': "thumb"}]
+        )
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+            {'gravity': "auto:face", 'height': 360,
+                'width': 360, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"}]
+        )
+        await asyncio.sleep(1)
+        layout_shown = cloudinary.CloudinaryImage(
+            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+                {'gravity': "auto", 'height': 315, 'width': 851, 'crop': "thumb"},
+                {'overlay': f"UsersLayout:{self.user_name}_av"},
+                {'gravity': "auto:face", 'height': 120,
+                    'width': 120, 'zoom': "0.5", 'crop': "thumb"},
+                {'radius': "max"},
+                {'flags': "layer_apply", 'gravity': "south_west", 'x': 20, 'y': 11},
+                {'overlay': "Layouts:facebook-layout"},
+                {'gravity': "south", 'height': 315, 'width': 851, 'crop': "thumb"},
+                {'flags': "layer_apply", 'gravity': "south"}
+            ])
+        print(layout_shown)
+        await asyncio.sleep(1)
+        embed_layout.set_image(url=layout_shown)
+        download_view.add_item(discord.ui.Button(label='Download Banner ✨',
+                                                 style=discord.ButtonStyle.url, url=banner_result))
+        download_view.add_item(discord.ui.Button(label='Download Avatar ✨',
+                                                 style=discord.ButtonStyle.url, url=av_result))
+        await interaction.response.send_message(view=download_view, embed=embed_layout)
+
+    @discord.ui.button(label='Linkedin! ✨', style=discord.ButtonStyle.primary, row=1)
+    async def linkedin_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_view = Link()
+        embed_layout = discord.Embed(
+            title='Linkedin Layout Powered By Cloudinary ✨',
+            color=discord.Color.random()
+        )
+        banner_result = cloudinary.CloudinaryImage(
+            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+                {'gravity': "auto", 'height': 800, 'width': 2000, 'crop': "thumb"}]
+        )
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+            {'gravity': "auto:face", 'height': 360,
+                'width': 360, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"}]
+        )
+        await asyncio.sleep(1)
+        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            {'gravity': "auto", 'height': 800, 'width': 2000, 'crop': "thumb"},
+            {'overlay': f"UsersLayout:{self.user_name}_av"},
+            {'gravity': "auto:face", 'height': 400,
+                'width': 400, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"},
+            {'flags': "layer_apply", 'gravity': "west", 'x': 62, 'y': 80},
+            {'overlay': "Layouts:linkedin-layout"},
+            {'gravity': "north", 'height': 800, 'width': 2000, 'crop': "thumb"},
+            {'flags': "layer_apply", 'gravity': "south"}
+        ])
+        print(layout_shown)
+        await asyncio.sleep(1)
+        embed_layout.set_image(url=layout_shown)
+        download_view.add_item(discord.ui.Button(label='Download Banner ✨',
+                                                 style=discord.ButtonStyle.url, url=banner_result))
+        download_view.add_item(discord.ui.Button(label='Download Avatar ✨',
+                                                 style=discord.ButtonStyle.url, url=av_result))
+        await interaction.response.send_message(view=download_view, embed=embed_layout)
+
+    @discord.ui.button(label='Twitter! ✨', style=discord.ButtonStyle.primary, row=1)
+    async def twitter_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_view = Link()
+        embed_layout = discord.Embed(
+            title='Twitter Layout Powered By Cloudinary ✨',
+            color=discord.Color.random()
+        )
+        banner_result = cloudinary.CloudinaryImage(
+            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+                {'gravity': "auto", 'height': 500, 'width': 1500, 'crop': "thumb"}]
+        )
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+            {'gravity': "auto:face", 'height': 360,
+                'width': 360, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"}]
+        )
+        await asyncio.sleep(1)
+        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            {'gravity': "auto:face", 'height': 500,
+                'width': 1500, 'crop': "thumb"},
+            {'overlay': f"UsersLayout:{self.user_name}_av"},
+            {'gravity': "auto:face", 'height': 280,
+                'width': 280, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"},
+            {'flags': "layer_apply", 'gravity': "west", 'x': 60, 'y': 65},
+            {'overlay': "Layouts:twitter-layout"},
+            {'gravity': "south", 'height': 500, 'width': 1500, 'crop': "thumb"},
+            {'flags': "layer_apply", 'gravity': "south"}
+        ])
+        print(layout_shown)
+        await asyncio.sleep(1)
+        embed_layout.set_image(url=layout_shown)
+        download_view.add_item(discord.ui.Button(label='Download Banner ✨',
+                                                 style=discord.ButtonStyle.url, url=banner_result))
+        download_view.add_item(discord.ui.Button(label='Download Avatar ✨',
+                                                 style=discord.ButtonStyle.url, url=av_result))
+        await interaction.response.send_message(view=download_view, embed=embed_layout)
+
+    @discord.ui.button(label='Discord! ✨', style=discord.ButtonStyle.primary, row=1)
+    async def discord_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_view = Link()
+        embed_layout = discord.Embed(
+            title='Discord Layout Powered By Cloudinary ✨',
+            color=discord.Color.random()
+        )
+        banner_result = cloudinary.CloudinaryImage(
+            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+                {'gravity': "auto", 'height': 240, 'width': 680, 'crop': "thumb"}]
+        )
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+            {'gravity': "auto:face", 'height': 240,
+                'width': 240, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"}]
+        )
+        await asyncio.sleep(1)
+        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            {'gravity': "auto:face", 'height': 226, 'width': 340, 'crop': "thumb"},
+            {'overlay': f"UsersLayout:{self.user_name}_av"},
+            {'gravity': "auto:face", 'height': 90,
+                'width': 90, 'zoom': "0.5", 'crop': "thumb"},
+            {'radius': "max"},
+            {'flags': "layer_apply", 'gravity': "west", 'x': 13},
+            {'overlay': "Layouts:Discord-Layout"},
+            {'flags': "layer_apply", 'gravity': "south"}
+        ])
+        print(layout_shown)
+        await asyncio.sleep(1)
+        embed_layout.set_image(url=layout_shown)
+        download_view.add_item(discord.ui.Button(label='Download Banner ✨',
+                                                 style=discord.ButtonStyle.url, url=banner_result))
+        download_view.add_item(discord.ui.Button(label='Download Avatar ✨',
+                                                 style=discord.ButtonStyle.url, url=av_result))
+        await interaction.response.send_message(view=download_view, embed=embed_layout)

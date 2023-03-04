@@ -1,10 +1,11 @@
+import asyncio
 import os
 import discord
 import dotenv
 
 # Local Imports
 # ==========================================================================================================================
-from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor, ColorFul, BgRemoval, Silhouette
+from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor, ColorFul, BgRemoval, Silhouette, TextOverlay, LayoutFor
 from embeds.helper import Command_Embeded
 from modules.module import Link, Pagination
 # ==========================================================================================================================
@@ -283,6 +284,26 @@ async def colorful(interaction: Interaction, drag: discord.message.Attachment, d
 
 # End of Colorful Effect Command
 
+
+#! Layout
+@bot.tree.command(name='layout_for', description='Upload an image and create a Layout effect over your file')
+@app_commands.describe(pfp_drag="drag'n' drop Your desire profile picture", banner_drag="drag'n' drop Your desire banner image", description="a small description of your uploads")
+async def layout_for(interaction: Interaction, pfp_drag: discord.message.Attachment, banner_drag: discord.message.Attachment, description: str | None):
+
+    user_name = interaction.user.name
+    view = LayoutFor(user_name, pfp_drag.url, banner_drag.url)
+    embed = discord.Embed(
+        title=f'Picture fetched by: {interaction.user}',
+        description=f'Prepare for create the layout for a social media and {description}',
+        color=discord.Color.random(),
+    )
+    embed.set_image(url='{}'.format(banner_drag))
+    embed.set_thumbnail(url=pfp_drag.url)
+    upload(pfp_drag.url, public_id=f'UsersLayout/{user_name}_av')
+    upload(banner_drag.url, public_id=f'UsersLayout/{user_name}_banner')
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
+
 '''
 Background Removal Effect! 🧨✨🎉
 
@@ -322,12 +343,7 @@ Silhouette Color Effect! 🧨✨🎉
 
 Transform the Image with a Black & White filter when you call the interaction.
 '''
-
-
-#! Color Silhouette
-@bot.tree.command(name='color_silhouette', description='Upload an image to apply a cool Colorized Effect')
-@app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
-@app_commands.choices(choice_color=[
+ColorChoices = app_commands.choices(choice_color=[
     Choice(name='Red', value='#CF2C2C'),
     Choice(name='Yellow', value='#9C9342'),
     Choice(name='Lime', value='#5EA031'),
@@ -337,26 +353,30 @@ Transform the Image with a Black & White filter when you call the interaction.
     Choice(name='Pink', value='#D867B4'),
     Choice(name='Wine', value='#862044'),
 ])
-async def color_silhouette(interaction: Interaction, drag: discord.message.Attachment, choice_color: Choice[str], description: str | None):
-    try:
-        file_name = drag.filename
-        view = Link() and Silhouette(file_name, choice_color.value)
-        embed = discord.Embed(
-            title=f'Picture fetched by: {interaction.user}',
-            description=description,
-            color=discord.Color.random(),
-        )
-        print(drag.content_type)
-        print(drag.size)
-        embed.set_image(url='{}'.format(drag))
-        embed.set_thumbnail(url=interaction.user.avatar)
-        upload(drag.url, public_id=f'Bot/{file_name}')
 
-        view.add_item(discord.ui.Button(label='See on the Browser',
-                                        style=discord.ButtonStyle.url, url='{}'.format(drag)))
-        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
-    except:
-        await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
+#! Color Silhouette
+
+
+@bot.tree.command(name='color_silhouette', description='Upload an image to apply a cool Colorized Effect')
+@app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
+@ColorChoices
+async def color_silhouette(interaction: Interaction, drag: discord.message.Attachment, choice_color: Choice[str], description: str | None):
+    file_name = drag.filename
+    view = Link() and Silhouette(file_name, choice_color.value)
+    embed = discord.Embed(
+        title=f'Picture fetched by: {interaction.user}',
+        description=description,
+        color=discord.Color.random(),
+    )
+    print(drag.content_type)
+    print(drag.size)
+    embed.set_image(url='{}'.format(drag))
+    embed.set_thumbnail(url=interaction.user.avatar)
+    upload(drag.url, public_id=f'Bot/{file_name}')
+
+    view.add_item(discord.ui.Button(label='See on the Browser',
+                                    style=discord.ButtonStyle.url, url='{}'.format(drag)))
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
 
 #! Discord emoji Resize
@@ -384,7 +404,55 @@ async def discord_emoji_resize(interaction: Interaction, drag: discord.message.A
         await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
 
 
+#! Text Overlay
+@bot.tree.command(name='text_overlay', description="Add a text over the image you upload, choose position.")
+@app_commands.describe()
+@app_commands.choices(font=[
+    Choice(name='Roboto', value='Roboto'),
+    Choice(name='Verdana', value='Verdana'),
+    Choice(name='Pacifico', value='Pacifico'),
+])
+@app_commands.choices(position=[
+    Choice(name='North', value='north'),
+    Choice(name='South', value='south'),
+    Choice(name='West', value='west'),
+    Choice(name='East', value='east'),
+])
+@app_commands.choices(color=[
+    Choice(name='Orange', value='Orange'),
+    Choice(name='Yellow', value='Yellow'),
+    Choice(name='Red', value='Red'),
+    Choice(name='Purple', value='Purple'),
+    Choice(name='Pink', value='Pink'),
+    Choice(name='Green', value='Green'),
+    Choice(name='Cyan', value='Cyan'),
+    Choice(name='Blue', value='Blue'),
+])
+@app_commands.choices(effect=[
+    Choice(name='Deg', value='deg'),
+    Choice(name='Fade', value='fade'),
+    Choice(name='Plain', value='plain')
+])
+async def text_overlay(interaction: Interaction, drag: discord.message.Attachment,  font: Choice[str], text: str, font_size: int, position: Choice[str], color: Choice[str], effect: Choice[str]):
+    file_name = drag.filename
+    view = Link() and TextOverlay(file_name, font.value,
+                                  text, font_size, position.value, color.value, effect.value)
+    embed = discord.Embed(
+        title=f'Picture fetched by: {interaction.user}',
+        description=f'Prepare to write {text} over the image',
+        color=discord.Color.random(),
+    )
+    embed.set_image(url='{}'.format(drag))
+    embed.set_thumbnail(url=interaction.user.avatar)
+    upload(drag.url, public_id=f'Bot/{file_name}')
+
+    view.add_item(discord.ui.Button(label='See on the Browser',
+                                    style=discord.ButtonStyle.url, url='{}'.format(drag)))
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
 #! Help Global Helps
+
+
 @bot.tree.command(name='help', description='Help About The usage of the bot')
 async def help(interaction: Interaction):
     embed_help = discord.Embed(
