@@ -3,9 +3,13 @@ import os
 import discord
 import dotenv
 
+import datetime
+import time
+
 # Local Imports
 # ==========================================================================================================================
-from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor, ColorFul, BgRemoval, Silhouette, TextOverlay, LayoutFor, Cartoonify, ColorBurn
+from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor
+from classes import ColorFul, BgRemoval, Silhouette, TextOverlay, LayoutFor, Cartoonify, ColorBurn, TwoSilhouette
 from embeds.helper import Command_Embeded
 from modules.module import Link, Pagination
 # ==========================================================================================================================
@@ -76,9 +80,31 @@ async def pineado(interaccion: Interaction, nombre: Member):
     await interaccion.response.send_message(nombre.mention)
 
 
-@bot.tree.command(name='ping', description='Comando de barra')
+@bot.tree.command(name='ping', description='Check Latency with the Bot')
 async def ping(interaction: Interaction):
-    await interaction.response.send_message('pong! ⛅')
+    latency = round(bot.latency * 1000)
+    start_time = time.time()
+    await asyncio.sleep(0.1)
+    measured_time = time.time() - start_time
+    end = round(measured_time * 1000)
+    if latency < 250:
+        color = discord.Color.blue()
+    elif latency < 450:
+        color = discord.Color.green()
+    elif latency < 600:
+        color = discord.Color.orange()
+    elif latency < 800:
+        color = discord.Color.red()
+    else:
+        color = discord.Color.dark_red()
+
+    embed = discord.Embed(title=f":ping_pong: Pong!",
+                          color=color, timestamp=datetime.datetime.utcnow())
+    embed.add_field(name="Websocket",
+                    value=f"```json\n{latency} ms```", inline=False)
+    embed.add_field(
+        name="Typing", value=f"```json\n{end} ms```", inline=False)
+    await interaction.response.send_message(embed=embed)
 
 av_remove_bg_option = discord.SelectOption(label='Remove Background', value='background_removal',
                                            description="remove the background of your pfp, note: doesn't work with no background images.")
@@ -402,11 +428,24 @@ ColorChoices = app_commands.choices(choice_color=[
     Choice(name='Purple', value='#7038A1'),
     Choice(name='Pink', value='#D867B4'),
     Choice(name='Wine', value='#862044'),
+    Choice(name='Blue', value='#09f'),
+    Choice(name='Black', value='#121212')
+])
+ColorChoices_2 = app_commands.choices(choice_color_two=[
+    Choice(name='Red', value='#CF2C2C'),
+    Choice(name='Yellow', value='#9C9342'),
+    Choice(name='Lime', value='#5EA031'),
+    Choice(name='Green', value='#0B7E29'),
+    Choice(name='Cyanade', value='#1AB4AA'),
+    Choice(name='Purple', value='#7038A1'),
+    Choice(name='Pink', value='#D867B4'),
+    Choice(name='Wine', value='#862044'),
+    Choice(name='Blue', value='#09f'),
+    Choice(name='Black', value='#121212')
 ])
 
+
 #! Color Silhouette
-
-
 @bot.tree.command(name='color_silhouette', description='Upload an image to apply a cool Colorized Effect')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
 @ColorChoices
@@ -420,6 +459,33 @@ async def color_silhouette(interaction: Interaction, drag: discord.message.Attac
     )
     print(drag.content_type)
     print(drag.size)
+    print(drag.width)
+    embed.set_image(url='{}'.format(drag))
+    embed.set_thumbnail(url=interaction.user.avatar)
+    upload(drag.url, public_id=f'Bot/{file_name}')
+
+    view.add_item(discord.ui.Button(label='See on the Browser',
+                                    style=discord.ButtonStyle.url, url='{}'.format(drag)))
+    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
+
+#! Two Color Silhouette
+@bot.tree.command(name='two_color_silhouette', description='Upload an image to apply a cool Colorized Effect')
+@app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
+@ColorChoices
+@ColorChoices_2
+async def two_color_silhouette(interaction: Interaction, drag: discord.message.Attachment, choice_color: Choice[str], choice_color_two: Choice[str], description: str | None):
+    file_name = drag.filename
+    view = Link() and TwoSilhouette(file_name, choice_color.value,
+                                    choice_color_two.value, drag.width)
+    embed = discord.Embed(
+        title=f'Picture fetched by: {interaction.user}',
+        description=description or 'Prepare for edit the next Image:',
+        color=discord.Color.random(),
+    )
+    print(drag.content_type)
+    print(drag.size)
+    print(drag.width)
     embed.set_image(url='{}'.format(drag))
     embed.set_thumbnail(url=interaction.user.avatar)
     upload(drag.url, public_id=f'Bot/{file_name}')
@@ -512,7 +578,7 @@ async def help(interaction: Interaction):
                         
                         The **interactions** are step by step to transform an image from the command to the result
                         
-                        There is only 2 Available archive for now: **[image/png & image/jpeg(jpg)]**
+                        There is only 2 Available archive for now: **[image/png, image/jpeg(jpg) & image/webp]**
                         
                         Discord Cloud Create offer an option to edit your Avatar and your Banner[must be Discord Premium user]
                         
@@ -529,7 +595,7 @@ async def help(interaction: Interaction):
     embed_help.set_thumbnail(url=interaction.user.avatar)
     embed_help.set_footer(
         text='In case of getting a 404 Not Found, consult /help_404')
-    await interaction.response.send_message(content="i'm thinking")
+    await interaction.response.send_message(content="Typing...")
     await asyncio.sleep(5)
     await interaction.edit_original_response(embed=embed_help, content='')
 

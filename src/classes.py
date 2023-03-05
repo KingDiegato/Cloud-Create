@@ -1,6 +1,7 @@
 import discord
 import cloudinary
 import asyncio
+import datetime
 
 from modules.module import Link, Force, ForceDisabled
 
@@ -18,6 +19,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#7038A1", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -31,6 +33,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#9C9342", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -44,6 +47,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#CF2C2C", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -57,6 +61,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#5EA031", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -70,6 +75,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#0B7E29", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -83,6 +89,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#39C0B5", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -96,6 +103,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#D867B4", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -109,6 +117,7 @@ class SilhouettePanel(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#862044", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette purple edition! By Cloudinary 🌟',
         )
         download_link.add_item(discord.ui.Button(label='Download Transformed',
@@ -130,6 +139,7 @@ class TransformAvView(discord.ui.View):
         image_transform = cloudinary.CloudinaryImage(
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:-30"}, {'effect': "brightness:30"}])
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
@@ -143,6 +153,7 @@ class TransformAvView(discord.ui.View):
         image_transform = cloudinary.CloudinaryImage(
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "contrast:50"}, {'effect': "saturation:-40"}])
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
@@ -156,6 +167,7 @@ class TransformAvView(discord.ui.View):
         image_transform = cloudinary.CloudinaryImage(
             f'Bot/{self.username}q:av_up').build_url(effect="sepia")
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
@@ -170,6 +182,7 @@ class TransformAvView(discord.ui.View):
         image_transform = cloudinary.CloudinaryImage(
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "grayscale"}])
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
@@ -183,6 +196,7 @@ class TransformAvView(discord.ui.View):
         image_transform = cloudinary.CloudinaryImage(
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:30"}, {'effect': "brightness:10"}])
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
@@ -196,6 +210,7 @@ class TransformAvView(discord.ui.View):
             f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "brightness:30"}, {'effect': "blackwhite:50"}])
         silhouette_view = SilhouettePanel(self.username)
         embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Silhouette black edition: {self.username}',
             description='You can change the color alike the /color_silhouette command, Try it! 🌟'
         )
@@ -220,6 +235,7 @@ class AvView(discord.ui.View):
         try:
             print(av_username)
             embed_prev_img = discord.Embed(
+                timestamp=datetime.datetime.utcnow(),
                 title=f'Prepare to transform Your Avatar {av_username}',
                 description='Select any options and see inmediately results'
             )
@@ -243,6 +259,7 @@ class BlackAndWhite(discord.ui.View):
     async def b_and_w(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='B&W Effect Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -264,6 +281,7 @@ class EmojiSizing(discord.ui.View):
     async def emoji_sizing(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='''
                           Improved picture Powered by Cloudinary 🎉✨,
@@ -288,6 +306,7 @@ class SepiaEffect(discord.ui.View):
     async def sepia_effect(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='Sepia Effect Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -309,6 +328,7 @@ class HighContrast(discord.ui.View):
     async def high_contrast_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='Contrast Improved Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -330,6 +350,7 @@ class WhiteColor(discord.ui.View):
     async def white_color_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='White Color Effect Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -351,6 +372,7 @@ class ColorFul(discord.ui.View):
     async def colorful_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='Colorful picture Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -372,6 +394,7 @@ class Cartoonify(discord.ui.View):
     async def cartoon_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='Cartonify picture Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -393,6 +416,7 @@ class ColorBurn(discord.ui.View):
     async def burn_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='Burning picture Powered by Cloudinary 🎉✨',
             color=discord.Color.random(),
@@ -413,6 +437,7 @@ class BgRemoval(discord.ui.View):
     @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
     async def bg_removal_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='''We are Processing the transformation, Please Wait...''',
             color=discord.Color.random(),
@@ -425,6 +450,7 @@ class BgRemoval(discord.ui.View):
         link_view = Link() and Force(image_tag)
         embed.set_image(url=image_blur)
         new_embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f"The image is ready {interaction.user}",
             description="if You cannot see the image here its cause Discord Already cached it and might not render, but you can found the image by clicking in the download button"
         )
@@ -448,6 +474,7 @@ class Silhouette(discord.ui.View):
     async def colorful_model(self, interaction: discord.Interaction, button: discord.ui.Button):
         link_view = Link()
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
             description='''Colorful picture Powered by Cloudinary 🎉✨
                            **Note:** Its works Better with a person picture or with a solid color background or transparent background
@@ -456,6 +483,47 @@ class Silhouette(discord.ui.View):
         )
         image_tag = cloudinary.CloudinaryImage(
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "blackwhite:39"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        embed.set_image(url=image_tag)
+        link_view.add_item(discord.ui.Button(label='Download ✨',
+                                             style=discord.ButtonStyle.url, url=image_tag))
+        await interaction.response.send_message(embed=embed, view=link_view)
+
+
+class TwoSilhouette(discord.ui.View):
+    def __init__(self, file_name, choice_color, choice_color_2, width):
+        super().__init__()
+        self.file_name = file_name
+        self.choice_color = choice_color
+        self.choice_color_2 = choice_color_2
+        self.width = width
+
+    @discord.ui.button(label='Transform! ✨', style=discord.ButtonStyle.blurple)
+    async def colorful_model(self, interaction: discord.Interaction, button: discord.ui.Button):
+        link_view = Link()
+        embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
+            title=f'Picture fetched by: {interaction.user}',
+            description='''Colorful picture Powered by Cloudinary 🎉✨
+                           **Note:** Its works Better with a person picture or with a solid color background or transparent background
+            ''',
+            color=discord.Color.random(),
+        )
+        image_tag = cloudinary.CloudinaryImage(
+            f"Bot/{self.file_name}.png").build_url(transformation=[
+                {'gravity': "west", 'height': "1.0",
+                    'width': "0.5", 'crop': "crop"},
+                {'effect': "blackwhite:39"},
+                {'color': self.choice_color, 'effect': "colorize:50"},
+                {'effect': "brightness:30"},
+                {'overlay': f"Bot:{self.file_name}.png"},
+                {'gravity': "east", 'height': "1.0",
+                    'width': "0.5", 'crop': "crop"},
+                {'effect': "blackwhite:39"},
+                {'color': self.choice_color_2, 'effect': "colorize:30"},
+                {'effect': "brightness:29"},
+                {'flags': "layer_apply", 'gravity': "east",
+                    'x': -(self.width/2)}
+            ])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag))
@@ -479,16 +547,15 @@ class TextOverlay(discord.ui.View):
         text_overlay = cloudinary.CloudinaryImage(
             f"Colors/Color_{self.color}_{self.effect}").build_url(overlay={'font_family': f'{self.font}', 'font_size': self.font_size, 'font_weight': "bold", 'text': f'{self.text}'.replace(" ", "%20")}, flags="cutter")
         embed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title=f'Picture fetched by: {interaction.user}',
-            description='''Colorful picture Powered by Cloudinary 🎉✨
-                           **Note:** Its works Better with a person picture or with a solid color background or transparent background
-            ''',
+            description='''Colorful picture Powered by Cloudinary 🎉✨''',
             color=discord.Color.random(),
         )
         print(text_overlay)
         await asyncio.sleep(2)
         image_tag = cloudinary.CloudinaryImage(
-            f"Bot/{self.file_name}.png").build_url(transformation=[{'overlay': {'url': f'{text_overlay}'}}, {'flags': "layer_apply", 'gravity': self.position, 'y': 20}])
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'overlay': {'url': f'{text_overlay}'}}, {'flags': "layer_apply", 'gravity': self.position, 'y': 20, 'x': 10}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag))
@@ -506,6 +573,7 @@ class LayoutFor(discord.ui.View):
     async def facebook_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
         download_view = Link()
         embed_layout = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title='Facebook Layout Powered By Cloudinary ✨',
             description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
@@ -545,6 +613,7 @@ class LayoutFor(discord.ui.View):
     async def linkedin_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
         download_view = Link()
         embed_layout = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title='Linkedin Layout Powered By Cloudinary ✨',
             description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
@@ -583,6 +652,7 @@ class LayoutFor(discord.ui.View):
     async def twitter_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
         download_view = Link()
         embed_layout = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title='Twitter Layout Powered By Cloudinary ✨',
             description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
@@ -622,6 +692,7 @@ class LayoutFor(discord.ui.View):
     async def discord_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
         download_view = Link()
         embed_layout = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
             title='Discord Layout Powered By Cloudinary ✨',
             description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
             color=discord.Color.random()
