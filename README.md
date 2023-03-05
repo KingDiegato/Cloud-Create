@@ -22,6 +22,8 @@ By accessing to the user Avatar, this action is called with the next command in 
 
 #### - [Color Silhouette](#color-silhouette-1)
 
+#### - [Two Color Silhouette](#two-color-silhouette-1)
+
 #### - [Whitify](#whitify-1)
 
 #### - [Black'n'White](#blacknwhite-1)
@@ -81,7 +83,7 @@ This feature use Drag'n'drop to upload files in the input of the Discord chat, t
 /color_silhouette drag: FileAttachment, color: Options.Color[🟥,🟧,🟨,🟩,🟦,🟪,] [max=1] , description: str | None
 ```
 
-Where **/color_silhouette** is the call to action **drag** is the file form directory or clipboard, **color** have variety options where you can choice what te color you want to transform the picture, and **description** is a little words to describe the image, _this param is optional_
+Where **/color_silhouette** is the call to action **drag** is the file form directory or clipboard, **color** have variety options where you can choice what the color you want to transform the picture, and **description** is a little words to describe the image, _this param is optional_
 
 example of color choice:
 
@@ -94,6 +96,20 @@ And a quick example of the results where we drop this image:
 #### And with the Pink Choice we obtain:
 
 <image height='720px' src='https://res.cloudinary.com/diegato/image/upload/e_blackwhite:50/co_rgb:D867B4,e_colorize:50/e_brightness:30/v1/Bot/9dc35c25870a23b2020446d5ef76c94b.png.png'>
+
+## Two Color Silhouette
+
+This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
+
+```
+/color_silhouette drag: FileAttachment, color: Options.Color[🟥,🟧,🟨,🟩,🟦,🟪,] [max=1] , description: str | None
+```
+
+Where **/two_color_silhouette** is the call to action **drag** is the file form directory or clipboard, **color** have variety options where you can choice what the color you want to transform the picture, the first color will be set in the left place and the second in the right place, and **description** is a little words to describe the image, _this param is optional_
+
+Example:
+
+<image src='https://images-ext-1.discordapp.net/external/fgUtq9LswX86j1t-JXYRpxxkvV2adRLFJ636CotW4K4/https/res.cloudinary.com/diegato/image/upload/c_crop%2Cg_west%2Ch_1.0%2Cw_0.5/e_blackwhite%3A39/co_rgb%3A09f%2Ce_colorize%3A50/e_brightness%3A30/l_Bot%3A20225251631678_1.jpg.png/c_crop%2Cg_east%2Ch_1.0%2Cw_0.5/e_blackwhite%3A39/co_rgb%3ACF2C2C%2Ce_colorize%3A30/e_brightness%3A29/fl_layer_apply%2Cg_east%2Cx_-600.0/v1/Bot/20225251631678_1.jpg.png' />
 
 ## Whitify
 
