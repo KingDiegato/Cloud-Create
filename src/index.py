@@ -421,7 +421,7 @@ Transform the Image with a Black & White filter when you call the interaction.
 '''
 ColorChoices = app_commands.choices(choice_color=[
     Choice(name='Red', value='#CF2C2C'),
-    Choice(name='Yellow', value='#9C9342'),
+    Choice(name='Yellow', value='#FFF900'),
     Choice(name='Lime', value='#5EA031'),
     Choice(name='Green', value='#0B7E29'),
     Choice(name='Cyanade', value='#1AB4AA'),
@@ -433,7 +433,7 @@ ColorChoices = app_commands.choices(choice_color=[
 ])
 ColorChoices_2 = app_commands.choices(choice_color_two=[
     Choice(name='Red', value='#CF2C2C'),
-    Choice(name='Yellow', value='#9C9342'),
+    Choice(name='Yellow', value='#FFF900'),
     Choice(name='Lime', value='#5EA031'),
     Choice(name='Green', value='#0B7E29'),
     Choice(name='Cyanade', value='#1AB4AA'),
