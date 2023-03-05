@@ -23,6 +23,16 @@ class Close(discord.ui.View):
         self.stop()
 
 
+class ForceDisabled(discord.ui.View):
+    def __init__(self):
+        super().__init__()
+        self.value = None
+
+    @discord.ui.button(label='Loading...', style=discord.ButtonStyle.danger, emoji='<a:typing:597589448607399949>' or ':typing:',  disabled=True)
+    async def ephemeral_button(self, interaction: Interaction, button: discord.ui.Button):
+        pass
+
+
 class Force(discord.ui.View):
     def __init__(self, image_tag):
         super().__init__()
@@ -39,7 +49,7 @@ class Force(discord.ui.View):
             description=f'''
             {self.image_tag}
             This action cloud take any longer, Discord provide a timeout of 3 seconds in any interaction, then the image might not render inmediately\n
-            if it's dont render inmediately try to pulse Load Image Btn again.
+            if it's dont render inmediately try to pulse Load Image Btn again in 30 seconds....
             ''',
             color=discord.Color.random()
         )
@@ -48,11 +58,10 @@ class Force(discord.ui.View):
 
         force_embed.set_image(url=self.image_tag)
         button.disabled = True
-        await interaction.response.send_message(embed=force_embed, view=watching)
+        await interaction.response.send_message(embed=force_embed, view=watching, ephemeral=True)
         await interaction.message.edit(view=self)
         await asyncio.sleep(30)
         button.disabled = False
-        await interaction.message.edit(view=self)
 
 
 class Pagination(discord.ui.View):

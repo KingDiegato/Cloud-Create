@@ -373,7 +373,7 @@ async def background_remove(interaction: Interaction, drag: discord.message.Atta
         view = Link() and BgRemoval(file_name)
         embed = discord.Embed(
             title=f'Picture fetched by: {interaction.user}',
-            description=description or 'Prepare for edit the next Image:',
+            description=description or 'Prepare for remove the background to the next Image:',
             color=discord.Color.random(),
         )
         embed.set_image(url='{}'.format(drag))
@@ -529,7 +529,9 @@ async def help(interaction: Interaction):
     embed_help.set_thumbnail(url=interaction.user.avatar)
     embed_help.set_footer(
         text='In case of getting a 404 Not Found, consult /help_404')
-    await interaction.response.send_message(embed=embed_help)
+    await interaction.response.send_message(content="i'm thinking")
+    await asyncio.sleep(5)
+    await interaction.edit_original_response(embed=embed_help, content='')
 
 
 #! Help Commands

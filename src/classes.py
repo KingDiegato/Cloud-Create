@@ -2,7 +2,7 @@ import discord
 import cloudinary
 import asyncio
 
-from modules.module import Link, Force
+from modules.module import Link, Force, ForceDisabled
 
 from discord import Interaction
 
@@ -251,7 +251,7 @@ class BlackAndWhite(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(effect="grayscale")
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -275,7 +275,7 @@ class EmojiSizing(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "improve:indoor:50"}, {'gravity': "auto:face", 'height': 128, 'width': 128, 'crop': "lfill"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -295,8 +295,8 @@ class SepiaEffect(discord.ui.View):
         image_tag = cloudinary.CloudinaryImage(
             f"Bot/{self.file_name}.png").build_url(effect="sepia")
         embed.set_image(url=image_tag)
-        link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+        link_view.add_item(discord.ui.Button(label='Download',
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -421,11 +421,21 @@ class BgRemoval(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "background_removal"}])
         image_blur = cloudinary.CloudinaryImage(
             f"bot/{self.file_name}.png").build_url(transformation=[{'effect': "blur:1500"}])
+        ephemeral_view = ForceDisabled()
         link_view = Link() and Force(image_tag)
         embed.set_image(url=image_blur)
+        new_embed = discord.Embed(
+            title=f"The image is ready {interaction.user}",
+            description="if You cannot see the image here its cause Discord Already cached it and might not render, but you can found the image by clicking in the download button"
+        )
+        new_embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag))
-        await interaction.response.send_message(embed=embed, view=link_view)
+        await interaction.response.send_message(embed=embed, view=ephemeral_view)
+        await asyncio.sleep(50)
+        await interaction.edit_original_response(embed=new_embed, view=link_view)
+        await asyncio.sleep(29)
+        await interaction.edit_original_response(embed=new_embed, view=link_view)
 
 
 class Silhouette(discord.ui.View):
