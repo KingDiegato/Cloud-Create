@@ -102,7 +102,7 @@ And a quick example of the results where we drop this image:
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:
 
 ```
-/color_silhouette drag: FileAttachment, color: Options.Color[🟥,🟧,🟨,🟩,🟦,🟪,] [max=1] , description: str | None
+/color_silhouette drag: FileAttachment, color: Options.Color[🟥,🟧,🟨,🟩,🟦,🟪,] [max=2] , description: str | None
 ```
 
 Where **/two_color_silhouette** is the call to action **drag** is the file form directory or clipboard, **color** have variety options where you can choice what the color you want to transform the picture, the first color will be set in the left place and the second in the right place, and **description** is a little words to describe the image, _this param is optional_
