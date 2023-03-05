@@ -367,7 +367,8 @@ async def color_burn(interaction: Interaction, drag: discord.message.Attachment,
 async def layout_for(interaction: Interaction, pfp_drag: discord.message.Attachment, banner_drag: discord.message.Attachment, description: str | None):
 
     user_name = interaction.user.name
-    view = LayoutFor(user_name, pfp_drag.url, banner_drag.url)
+    view = LayoutFor(user_name, pfp_drag.url, banner_drag.url,
+                     pfp_drag.size, banner_drag.size)
     embed = discord.Embed(
         title=f'Picture fetched by: {interaction.user}',
         description=f'Prepare for create the layout for a social media and {description}',
@@ -375,8 +376,10 @@ async def layout_for(interaction: Interaction, pfp_drag: discord.message.Attachm
     )
     embed.set_image(url='{}'.format(banner_drag))
     embed.set_thumbnail(url=pfp_drag.url)
-    upload(pfp_drag.url, public_id=f'UsersLayout/{user_name}_av')
-    upload(banner_drag.url, public_id=f'UsersLayout/{user_name}_banner')
+    upload(pfp_drag.url,
+           public_id=f'UsersLayout/{user_name}_av{pfp_drag.size}')
+    upload(banner_drag.url,
+           public_id=f'UsersLayout/{user_name}_banner{banner_drag.size}')
     await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
 

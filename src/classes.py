@@ -563,11 +563,13 @@ class TextOverlay(discord.ui.View):
 
 
 class LayoutFor(discord.ui.View):
-    def __init__(self, user_name, pfp_drag, banner_drag):
+    def __init__(self, user_name, pfp_drag, banner_drag, pfpsize, bannersize):
         super().__init__()
         self.user_name = user_name
         self.pfp_drag = pfp_drag
         self.banner_drag = banner_drag
+        self.pfpsize = pfpsize
+        self.bannersize = bannersize
 
     @discord.ui.button(label='Facebook! ✨', style=discord.ButtonStyle.primary, row=1)
     async def facebook_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
@@ -579,19 +581,19 @@ class LayoutFor(discord.ui.View):
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
-            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
                 {'gravity': "auto", 'height': 315, 'width': 851, 'crop': "thumb"}]
         )
-        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av{self.pfpsize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 360,
                 'width': 360, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"}]
         )
         await asyncio.sleep(1)
         layout_shown = cloudinary.CloudinaryImage(
-            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
                 {'gravity': "auto", 'height': 315, 'width': 851, 'crop': "thumb"},
-                {'overlay': f"UsersLayout:{self.user_name}_av"},
+                {'overlay': f"UsersLayout:{self.user_name}_av{self.pfpsize}"},
                 {'gravity': "auto:face", 'height': 120,
                     'width': 120, 'zoom': "0.5", 'crop': "thumb"},
                 {'radius': "max"},
@@ -619,18 +621,18 @@ class LayoutFor(discord.ui.View):
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
-            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
                 {'gravity': "auto", 'height': 800, 'width': 2000, 'crop': "thumb"}]
         )
-        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av{self.pfpsize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 360,
                 'width': 360, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"}]
         )
         await asyncio.sleep(1)
-        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
             {'gravity': "auto", 'height': 800, 'width': 2000, 'crop': "thumb"},
-            {'overlay': f"UsersLayout:{self.user_name}_av"},
+            {'overlay': f"UsersLayout:{self.user_name}_av{self.pfpsize}"},
             {'gravity': "auto:face", 'height': 400,
                 'width': 400, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"},
@@ -658,19 +660,19 @@ class LayoutFor(discord.ui.View):
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
-            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
                 {'gravity': "auto", 'height': 500, 'width': 1500, 'crop': "thumb"}]
         )
-        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av{self.pfpsize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 360,
                 'width': 360, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"}]
         )
         await asyncio.sleep(1)
-        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 500,
                 'width': 1500, 'crop': "thumb"},
-            {'overlay': f"UsersLayout:{self.user_name}_av"},
+            {'overlay': f"UsersLayout:{self.user_name}_av{self.pfpsize}"},
             {'gravity': "auto:face", 'height': 280,
                 'width': 280, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"},
@@ -698,18 +700,18 @@ class LayoutFor(discord.ui.View):
             color=discord.Color.random()
         )
         banner_result = cloudinary.CloudinaryImage(
-            f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+            f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
                 {'gravity': "auto", 'height': 240, 'width': 680, 'crop': "thumb"}]
         )
-        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av").build_url(transformation=[
+        av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av{self.pfpsize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 240,
                 'width': 240, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"}]
         )
         await asyncio.sleep(1)
-        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner").build_url(transformation=[
+        layout_shown = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_banner{self.bannersize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 226, 'width': 340, 'crop': "thumb"},
-            {'overlay': f"UsersLayout:{self.user_name}_av"},
+            {'overlay': f"UsersLayout:{self.user_name}_av{self.pfpsize}"},
             {'gravity': "auto:face", 'height': 90,
                 'width': 90, 'zoom': "0.5", 'crop': "thumb"},
             {'radius': "max"},
