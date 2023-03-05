@@ -2,7 +2,7 @@ import discord
 from discord import Interaction
 import asyncio
 
-from embeds.helper import Command_Embeded, Commands_Page2
+from embeds.helper import Command_Embeded, Commands_Page2, Commands_Page3
 
 
 class Link(discord.ui.View):
@@ -66,3 +66,7 @@ class Pagination(discord.ui.View):
     @discord.ui.button(label='Page 2', style=discord.ButtonStyle.secondary)
     async def page_2(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.edit_message(embed=Commands_Page2(), view=self)
+
+    @discord.ui.button(label='Page 3', style=discord.ButtonStyle.secondary)
+    async def page_2(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await interaction.response.edit_message(embed=Commands_Page3(), view=self)
