@@ -770,3 +770,36 @@ class LayoutFor(discord.ui.View):
         download_view.add_item(discord.ui.Button(label='Download Avatar ✨',
                                                  style=discord.ButtonStyle.url, url=av_result))
         await interaction.response.send_message(view=download_view, embed=embed_layout)
+
+
+class Texturized(discord.ui.View):
+    def __init__(self, user_name, url, size, strength, effect):
+        super().__init__()
+        self.user_name = user_name
+        self.url = url
+        self.size = size
+        self.strength = strength
+        self.effect = effect
+
+    @discord.ui.button(label='Texturize! ✨', style=discord.ButtonStyle.primary, row=1)
+    async def texturized_frame(self, interaction: discord.Interaction, button: discord.ui.Button):
+        download_view = Link()
+        embed_layout = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
+            title='Texture applied Powered By Cloudinary ✨',
+            description='By clicking in the Download Button, You will see the Image With the size perfectly for the social media, for avatar and for banner individually',
+            color=discord.Color.random()
+        )
+        result = cloudinary.CloudinaryImage(
+            f"Bot/{self.user_name}_texturized{self.size}").build_url(transformation=[
+                {'overlay': f"Effects:{self.effect}"},
+                {'effect': "displace", 'flags': "layer_apply",
+                    'x': self.strength, 'y': self.strength},
+            ]
+        )
+        await asyncio.sleep(1)
+        print(result)
+        embed_layout.set_image(url=result)
+        download_view.add_item(discord.ui.Button(label='Download Banner ✨',
+                                                 style=discord.ButtonStyle.url, url=result))
+        await interaction.response.send_message(view=download_view, embed=embed_layout)
