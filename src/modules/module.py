@@ -77,5 +77,5 @@ class Pagination(discord.ui.View):
         await interaction.response.edit_message(embed=Commands_Page2(), view=self)
 
     @discord.ui.button(label='Page 3', style=discord.ButtonStyle.secondary)
-    async def page_2(self, interaction: discord.Interaction, button: discord.ui.Button):
+    async def page_3(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.edit_message(embed=Commands_Page3(), view=self)

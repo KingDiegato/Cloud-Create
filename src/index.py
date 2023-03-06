@@ -340,7 +340,7 @@ async def cartoonify(interaction: Interaction, drag: discord.message.Attachment,
 
 
 #! ColorBurn
-@bot.tree.command(name='color_burn', description='Upload an image and create a Cartonify effect in a photo')
+@bot.tree.command(name='color_burn', description='Upload an image and create a Burn effect in a photo')
 @app_commands.describe(drag="drag 'n' drop a file or upload from directory", description="a description for the image")
 async def color_burn(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
     try:

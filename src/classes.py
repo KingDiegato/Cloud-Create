@@ -365,7 +365,7 @@ class HighContrast(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:50"}, {'effect': "saturation:-40"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -387,7 +387,7 @@ class WhiteColor(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:-30"}, {'effect': "brightness:30"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -409,7 +409,7 @@ class ColorFul(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:30"}, {'effect': "brightness:10"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -429,9 +429,10 @@ class Cartoonify(discord.ui.View):
         )
         image_tag = cloudinary.CloudinaryImage(
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:-30"}, {'effect': "cartoonify"}, {'effect': "saturation:-30"}, {'effect': "brightness:10"}, {'effect': "improve:outdoor:50"}])
+        await asyncio.sleep(0.8)
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -451,9 +452,10 @@ class ColorBurn(discord.ui.View):
         )
         image_tag = cloudinary.CloudinaryImage(
             f"Bot/{self.file_name}.png").build_url(effect="art:zorro")
+        await asyncio.sleep(0.8)
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -482,9 +484,10 @@ class BgRemoval(discord.ui.View):
             title=f"The image is ready {interaction.user}",
             description="if You cannot see the image here its cause Discord Already cached it and might not render, but you can found the image by clicking in the download button"
         )
+        await asyncio.sleep(0.8)
         new_embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=ephemeral_view)
         await asyncio.sleep(50)
         await interaction.edit_original_response(embed=new_embed, view=link_view)
@@ -513,7 +516,7 @@ class Silhouette(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "blackwhite:39"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -552,9 +555,10 @@ class TwoSilhouette(discord.ui.View):
                 {'flags': "layer_apply", 'gravity': "east",
                     'x': -(self.width/2)}
             ])
+        await asyncio.sleep(0.8)
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
@@ -586,7 +590,7 @@ class TextOverlay(discord.ui.View):
             f"Bot/{self.file_name}.png").build_url(transformation=[{'overlay': {'url': f'{text_overlay}'}}, {'flags': "layer_apply", 'gravity': self.position, 'y': 20, 'x': 10}])
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
-                                             style=discord.ButtonStyle.url, url=image_tag))
+                                             style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
 
 
