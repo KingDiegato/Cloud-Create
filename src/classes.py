@@ -16,112 +16,140 @@ class SilhouettePanel(discord.ui.View):
     @discord.ui.button(label='Purple', style=discord.ButtonStyle.primary, row=1)
     async def purple_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#7038A1", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#7038A1", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Purple edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Yellow', style=discord.ButtonStyle.primary, row=1)
     async def yellow_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#9C9342", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#FFF900", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Yellow edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Red', style=discord.ButtonStyle.primary, row=1)
     async def red_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#CF2C2C", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#CF2C2C", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Red edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Lime', style=discord.ButtonStyle.primary, row=1)
     async def lime_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#5EA031", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#5EA031", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Lime edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Green', style=discord.ButtonStyle.primary, row=2)
     async def green_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#0B7E29", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#0B7E29", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Green edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Cyan', style=discord.ButtonStyle.primary, row=2)
     async def cyan_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#39C0B5", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#39C0B5", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Cyan edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Pink', style=discord.ButtonStyle.primary, row=2)
     async def pink_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#D867B4", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#D867B4", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Pink edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Wine', style=discord.ButtonStyle.primary, row=2)
     async def wine_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:50"}, {'color': "#862044", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#862044", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
         download_link = Link()
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
-            title=f'Silhouette purple edition! By Cloudinary 🌟',
+            title=f'Silhouette Wine edition! By Cloudinary 🌟',
         )
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Blue', style=discord.ButtonStyle.primary, row=3)
+    async def blue_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#09f", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
+            title=f'Silhouette Blue edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
+        embed_transformed.set_image(url=image_transform)
+        await interaction.response.edit_message(embed=embed_transformed, view=download_link)
+
+    @discord.ui.button(label='Azure', style=discord.ButtonStyle.primary, row=3)
+    async def azure_sil(self, interaction: discord.Interaction, button: discord.ui.Button):
+        image_transform = cloudinary.CloudinaryImage(
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "blackwhite:39"}, {'color': "#888888", 'effect': "colorize:50"}, {'effect': "brightness:30"}])
+        download_link = Link()
+        embed_transformed = discord.Embed(
+            timestamp=datetime.datetime.utcnow(),
+            title=f'Silhouette Azure edition! By Cloudinary 🌟',
+        )
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         embed_transformed.set_image(url=image_transform)
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
 
@@ -143,8 +171,8 @@ class TransformAvView(discord.ui.View):
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='High Contrast', style=discord.ButtonStyle.primary, row=1)
@@ -157,8 +185,8 @@ class TransformAvView(discord.ui.View):
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Sepia', style=discord.ButtonStyle.primary, row=1)
@@ -171,8 +199,8 @@ class TransformAvView(discord.ui.View):
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed_transformed, view=download_link)
 
     # ? Row Button = 2
@@ -186,8 +214,8 @@ class TransformAvView(discord.ui.View):
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Colorful Avatar', style=discord.ButtonStyle.primary, row=2)
@@ -200,14 +228,14 @@ class TransformAvView(discord.ui.View):
             title=f'Here is it {self.username}'
         )
         embed_transformed.set_image(url=image_transform)
-        download_link.add_item(discord.ui.Button(label='Download Transformed',
-                                                 style=discord.ButtonStyle.url, url=image_transform))
+        download_link.add_item(discord.ui.Button(label='Download Now',
+                                                 style=discord.ButtonStyle.url, url=image_transform, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed_transformed, view=download_link)
 
     @discord.ui.button(label='Silhouette Avatar', style=discord.ButtonStyle.primary, row=2)
     async def Silhouette_panel(self, interaction: discord.Interaction, button: discord.ui.Button):
         image_transform = cloudinary.CloudinaryImage(
-            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "brightness:30"}, {'effect': "blackwhite:50"}])
+            f'Bot/{self.username}q:av_up').build_url(transformation=[{'effect': "brightness:30"}, {'effect': "blackwhite:39"}])
         silhouette_view = SilhouettePanel(self.username)
         embed_transformed = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
