@@ -586,7 +586,7 @@ class LayoutFor(discord.ui.View):
         )
         av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av{self.pfpsize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 360,
-                'width': 360, 'zoom': "0.5", 'crop': "thumb"},
+                'width': 360, 'zoom': "0.2", 'crop': "thumb"},
             {'radius': "max"}]
         )
         await asyncio.sleep(1)
@@ -595,12 +595,15 @@ class LayoutFor(discord.ui.View):
                 {'gravity': "auto", 'height': 315, 'width': 851, 'crop': "thumb"},
                 {'overlay': f"UsersLayout:{self.user_name}_av{self.pfpsize}"},
                 {'gravity': "auto:face", 'height': 120,
-                    'width': 120, 'zoom': "0.5", 'crop': "thumb"},
+                    'width': 120, 'zoom': "0.2", 'crop': "thumb"},
                 {'radius': "max"},
                 {'flags': "layer_apply", 'gravity': "south_west", 'x': 20, 'y': 11},
                 {'overlay': "Layouts:facebook-layout"},
                 {'gravity': "south", 'height': 315, 'width': 851, 'crop': "thumb"},
-                {'flags': "layer_apply", 'gravity': "south"}
+                {'flags': "layer_apply", 'gravity': "south"},
+                {'color': "#F5F5F5", 'overlay': {'font_family': "arial", 'font_size': 36,
+                                                 'font_weight': "bold", 'text_align': "left", 'text': f"{self.user_name}"}},
+                {'flags': "layer_apply", 'gravity': "south_west", 'x': 160, 'y': 46}
             ])
         print(layout_shown)
         await asyncio.sleep(1)
@@ -613,6 +616,8 @@ class LayoutFor(discord.ui.View):
 
     @discord.ui.button(label='Linkedin! ✨', style=discord.ButtonStyle.primary, row=1)
     async def linkedin_layout(self, interaction: discord.Interaction, button: discord.ui.Button):
+        print(interaction.user.name)
+        print(self.user_name)
         download_view = Link()
         embed_layout = discord.Embed(
             timestamp=datetime.datetime.utcnow(),
@@ -639,7 +644,10 @@ class LayoutFor(discord.ui.View):
             {'flags': "layer_apply", 'gravity': "west", 'x': 62, 'y': 80},
             {'overlay': "Layouts:linkedin-layout"},
             {'gravity': "north", 'height': 800, 'width': 2000, 'crop': "thumb"},
-            {'flags': "layer_apply", 'gravity': "south"}
+            {'flags': "layer_apply", 'gravity': "south"},
+            {'color': "#000000", 'overlay': {'font_family': "arial", 'font_size': 72,
+                                             'text_align': "left", 'text': f"{self.user_name}"}},
+            {'flags': "layer_apply", 'gravity': "west", 'x': 120, 'y': 320}
         ])
         print(layout_shown)
         await asyncio.sleep(1)
@@ -705,7 +713,7 @@ class LayoutFor(discord.ui.View):
         )
         av_result = cloudinary.CloudinaryImage(f"UsersLayout/{self.user_name}_av{self.pfpsize}").build_url(transformation=[
             {'gravity': "auto:face", 'height': 240,
-                'width': 240, 'zoom': "0.5", 'crop': "thumb"},
+                'width': 240, 'zoom': "0.2", 'crop': "thumb"},
             {'radius': "max"}]
         )
         await asyncio.sleep(1)
@@ -713,11 +721,14 @@ class LayoutFor(discord.ui.View):
             {'gravity': "auto:face", 'height': 226, 'width': 340, 'crop': "thumb"},
             {'overlay': f"UsersLayout:{self.user_name}_av{self.pfpsize}"},
             {'gravity': "auto:face", 'height': 90,
-                'width': 90, 'zoom': "0.5", 'crop': "thumb"},
+                'width': 90, 'zoom': "0.2", 'crop': "thumb"},
             {'radius': "max"},
             {'flags': "layer_apply", 'gravity': "west", 'x': 13},
             {'overlay': "Layouts:Discord-Layout"},
-            {'flags': "layer_apply", 'gravity': "south"}
+            {'flags': "layer_apply", 'gravity': "south", 'zoom': "0.5"},
+            {'color': "#F5F5F5", 'overlay': {'font_family': "arial", 'font_size': 24,
+                                             'font_weight': "bold", 'text_align': "left", 'text': f"{self.user_name}"}},
+            {'flags': "layer_apply", 'gravity': "south_west", 'x': 35, 'y': 18}
         ])
         print(layout_shown)
         await asyncio.sleep(1)
