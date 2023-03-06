@@ -56,7 +56,8 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
-bot = commands.Bot(command_prefix='$', intents=intents)  # Prefijo del bot
+bot = commands.Bot(command_prefix='$', intents=intents, status=discord.Status.online, activity=discord.Activity(
+    type=discord.ActivityType.watching, name='Art Attack', details='About to create a new colorful world, and bring a big experience to your images'))  # Prefijo del bot
 
 
 @bot.event
@@ -65,7 +66,6 @@ async def on_ready():
     print('Online!')
     print('='*40)
     await bot.tree.sync()
-    await bot.change_presence(activity=discord.Game('Crear Imagenes muy Geniales'))
 
 
 #! init update command
@@ -76,10 +76,11 @@ async def init(ctx):
 
 
 @bot.tree.command(name='pineado', description='Llama a una persona por su tag')
-async def pineado(interaccion: Interaction, nombre: Member):
-    await interaccion.response.send_message(nombre.mention)
+async def pineado(interaction: Interaction, nombre: Member):
+    await interaction.response.send_message(nombre.mention)
 
 
+#! Ping
 @bot.tree.command(name='ping', description='Check Latency with the Bot')
 async def ping(interaction: Interaction):
     latency = round(bot.latency * 1000)
