@@ -39,7 +39,7 @@ class Force(discord.ui.View):
         self.image_tag = image_tag
         self.value = None
 
-    @discord.ui.button(label='Load Image', style=discord.ButtonStyle.danger)
+    @discord.ui.button(label='Load Image', style=discord.ButtonStyle.success)
     async def force_image_load(self, interaction: Interaction, button: discord.ui.Button):
         watching = Link()
         force_embed = discord.Embed(
