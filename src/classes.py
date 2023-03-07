@@ -497,7 +497,7 @@ class BgRemoval(discord.ui.View):
         try:
             uploading_img_no_bg = upload(image_tag, responsive_breakpoints={
                 "create_derived": True,
-                "bytes_step": 80000,
+                "bytes_step": 150,
                 "min_width": 200,
                 "max_width": 4000})
         except:
