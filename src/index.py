@@ -149,7 +149,7 @@ async def av(interaction: Interaction, member: Member):
             color=discord.Color.random(),
         )
         show_banner.set_image(url=member.banner)
-        upload(f"{member.banner}", public_id=f'Bot/{member.name}q:banner_up')
+        upload(f"{member.banner}", public_id=f'Bot/{member.name}qbanner_up')
         await interaction.response.send_message(embed=show_banner, view=av_view,)
     except FileNotFoundError:
         await interaction.response.send_message('Your Banner is not available for edits')

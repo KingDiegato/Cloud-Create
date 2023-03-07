@@ -228,9 +228,13 @@ Sometimes When you call an action with the slash command, may throw an error app
 This might happen for Some reason:
 
 **1.- Connection error with the platform**
+
 **2.- Discord TimeOut (tried more than 3 seconds to call the command)**
+
 **3.- Internet too Slow**
+
 **4.- I Hate You (jk)**
+
 **5.- Cloudinary Service Might be Down for a while**
 
 There's not a directly solution for this error, just only retry to use the command in a few seconds
