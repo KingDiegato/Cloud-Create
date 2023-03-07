@@ -58,7 +58,7 @@ class Force(discord.ui.View):
 
         force_embed.set_image(url=self.image_tag)
         button.disabled = True
-        await interaction.response.send_message(embed=force_embed, view=watching, ephemeral=True)
+        await interaction.response.send_message(embed=force_embed, view=watching, ephemeral=False)
         await interaction.message.edit(view=self)
         await asyncio.sleep(30)
         button.disabled = False

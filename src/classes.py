@@ -7,6 +7,8 @@ from modules.module import Link, Force, ForceDisabled
 
 from discord import Interaction
 
+from cloudinary.uploader import upload
+
 
 class SilhouettePanel(discord.ui.View):
     def __init__(self, username):
@@ -484,12 +486,27 @@ class BgRemoval(discord.ui.View):
             title=f"The image is ready {interaction.user}",
             description="if You cannot see the image here its cause Discord Already cached it and might not render, but you can found the image by clicking in the download button"
         )
-        await asyncio.sleep(0.8)
-        new_embed.set_image(url=image_tag)
+        new_embed.set_image(url=image_blur)
         link_view.add_item(discord.ui.Button(label='Download ✨',
                                              style=discord.ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
+        await asyncio.sleep(1)
         await interaction.response.send_message(embed=embed, view=ephemeral_view)
-        await asyncio.sleep(50)
+        button.disabled = True
+
+        await asyncio.sleep(25)
+        try:
+            uploading_img_no_bg = upload(image_tag, responsive_breakpoints={
+                "create_derived": True,
+                "bytes_step": 80000,
+                "min_width": 200,
+                "max_width": 4000})
+        except:
+            print('image cannot be uploaded')
+        await asyncio.sleep(25)
+        try:
+            new_embed.set_image(url=uploading_img_no_bg['secure_url'])
+        except:
+            print('keeping the original file and pry for this render')
         await interaction.edit_original_response(embed=new_embed, view=link_view)
         await asyncio.sleep(29)
         await interaction.edit_original_response(embed=new_embed, view=link_view)
@@ -800,6 +817,6 @@ class Texturized(discord.ui.View):
         await asyncio.sleep(1)
         print(result)
         embed_layout.set_image(url=result)
-        download_view.add_item(discord.ui.Button(label='Download Banner ✨',
-                                                 style=discord.ButtonStyle.url, url=result))
+        download_view.add_item(discord.ui.Button(label='Download ✨',
+                                                 style=discord.ButtonStyle.url, url=result, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(view=download_view, embed=embed_layout)
