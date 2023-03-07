@@ -215,6 +215,22 @@ Simple: from a normal image it will transform and with AI remove those that cons
 
 Complex: This action is heavy to make, so the content may late a bit to render but with the link you can shown the result in the browser.
 
+## Texturize!
+
+---
+
+You can apply a curious effect by using the command /texturize, this command will convert your image to be like in some plain areas like a wall, underwater or in cobblestones!
+
+call to action:
+
+```
+/texturize drag: Fileattachment, strength: Choice[int], effect: Choice[str]
+```
+
+Example of the result:
+
+<image src='https://media.licdn.com/dms/image/C4D22AQFDD8T4bVpdbA/feedshare-shrink_1280/0/1678220895528?e=1681344000&v=beta&t=jiAdYCwxlrENihCXxW-rT8JNjGHktrWcdK7W5TLrCKY' />
+
 ---
 
 ## Error Handling
