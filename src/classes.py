@@ -430,7 +430,7 @@ class Cartoonify(discord.ui.View):
             color=discord.Color.random(),
         )
         image_tag = cloudinary.CloudinaryImage(
-            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:-30"}, {'effect': "cartoonify"}, {'effect': "saturation:-30"}, {'effect': "brightness:10"}, {'effect': "improve:outdoor:50"}])
+            f"Bot/cartony_{self.file_name}.png").build_url(transformation=[{'effect': "contrast:-30"}, {'effect': "cartoonify"}, {'effect': "saturation:-30"}, {'effect': "brightness:10"}, {'effect': "improve:outdoor:50"}])
         await asyncio.sleep(0.8)
         embed.set_image(url=image_tag)
         link_view.add_item(discord.ui.Button(label='Download ✨',
@@ -500,6 +500,7 @@ class BgRemoval(discord.ui.View):
                 "bytes_step": 150,
                 "min_width": 200,
                 "max_width": 4000})
+            print('Image uploaded, we are safe')
         except:
             print('image cannot be uploaded')
         await asyncio.sleep(25)

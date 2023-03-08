@@ -31,6 +31,7 @@ from discord.app_commands import Choice
 # ==============================
 import cloudinary
 from cloudinary.uploader import upload
+from cloudinary.uploader import upload_large
 
 dotenv.load_dotenv()
 
@@ -132,7 +133,7 @@ async def av(interaction: Interaction, member: Member):
         upload(f"{member.avatar}", public_id=f'Bot/{member.name}q:av_up')
         await interaction.response.send_message(embed=show_avatar, view=av_view)
     except:
-        await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
+        await interaction.response.send_message("CEO Avatar cannot be uploaded")
 
 
 #! Banner
@@ -330,7 +331,7 @@ async def cartoonify(interaction: Interaction, drag: discord.message.Attachment,
         )
         embed.set_image(url='{}'.format(drag))
         embed.set_thumbnail(url=interaction.user.avatar)
-        upload(drag.url, public_id=f'Bot/{file_name}')
+        upload(drag.url, public_id=f'Bot/cartony_{file_name}')
 
         view.add_item(discord.ui.Button(label='See on the Browser',
                                         style=discord.ButtonStyle.url, url='{}'.format(drag)))
