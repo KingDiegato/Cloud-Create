@@ -1,18 +1,17 @@
-import discord
+from discord import Color, Embed
 
+description = 'The command interaction with the bot is step by step for editing images,'\
+              '**Prefix:** Slash command (/) & use cash symbol for init new updates ($init),'\
+              '**List of commands:**'
 
 def Command_Embeded():
     '''
     Create an Embed for the Help Command Interaction
     '''
-    embed_commands = discord.Embed(
+    embed_commands = Embed(
         title="Commands Help (1/3)",
-        description="""
-                      The command interaction with the bot is step by step for editing images,
-                      **Prefix:** Slash command (/) & use cash symbol for init new updates ($init),
-                      **List of commands:**
-                      """,
-        color=discord.Color.blurple()
+        description=description,
+        color=Color.blurple()
     )
     embed_commands.add_field(name="Background Remove", value="""☑**Command:** /background_remove
                                                                     🎶**Return:** The image with png format and backgroundless
@@ -34,10 +33,10 @@ def Command_Embeded():
                                                                     🎶**Return:** From Uploaded Image, **return** Color Intensify Image
                                                                     💨**Steps:** Upload image (drag) -> Transform panel (btn) -> Result (btn)
                                                                 """, inline=False)
-    embed_commands.set_footer(
-        text="Command /help for regular and terms helps, Command /help_404 for not found or response errors")
-    embed_commands.set_thumbnail(
-        url="https://res.cloudinary.com/diegato/image/upload/e_contrast:50/e_saturation:-40/v1/Bot/Testing-1q:av_up")
+    
+    embed_commands.set_footer(text="Command /help for regular and terms helps, Command /help_404 for not found or response errors")
+    
+    embed_commands.set_thumbnail(url="https://res.cloudinary.com/diegato/image/upload/e_contrast:50/e_saturation:-40/v1/Bot/Testing-1q:av_up")
 
     return embed_commands
 
@@ -46,14 +45,10 @@ def Commands_Page2():
     '''
     Create an Embed for the Help Command Interaction
     '''
-    embed_commands_page2 = discord.Embed(
+    embed_commands_page2 = Embed(
         title="Commands Help (2/3)",
-        description="""
-                      The command interaction with the bot is step by step for editing images,
-                      **Prefix:** Slash command (/) & use cash symbol for init new updates ($init),
-                      **List of commands:**
-                      """,
-        color=discord.Color.blurple()
+        description=description,
+        color=Color.blurple()
     )
     embed_commands_page2.add_field(name="Background Remove", value="""☑**Command:** /discord_emoji_resize
                                                                     🎶**Return:** The image Resize for fit in the emoji ideal config
@@ -75,10 +70,10 @@ def Commands_Page2():
                                                                     🎶**Return:** Summary of the help
                                                                     💨**Steps:** Call to action
                                                                 """, inline=False)
-    embed_commands_page2.set_footer(
-        text="Command /help for regular and terms helps, Command /help_404 for not found or response errors")
-    embed_commands_page2.set_thumbnail(
-        url="https://res.cloudinary.com/diegato/image/upload/e_contrast:50/e_saturation:-40/v1/Bot/Testing-1q:av_up")
+    
+    embed_commands_page2.set_footer(text="Command /help for regular and terms helps, Command /help_404 for not found or response errors")
+    
+    embed_commands_page2.set_thumbnail(url="https://res.cloudinary.com/diegato/image/upload/e_contrast:50/e_saturation:-40/v1/Bot/Testing-1q:av_up")
 
     return embed_commands_page2
 
@@ -87,14 +82,10 @@ def Commands_Page3():
     '''
     Create an Embed for the Help Command Interaction
     '''
-    embed_commands_page3 = discord.Embed(
+    embed_commands_page3 = Embed(
         title="Commands Help (3/3)",
-        description="""
-                      The command interaction with the bot is step by step for editing images,
-                      **Prefix:** Slash command (/) & use cash symbol for init new updates ($init),
-                      **List of commands:**
-                      """,
-        color=discord.Color.blurple()
+        description=description,
+        color=Color.blurple()
     )
     embed_commands_page3.add_field(name="Background Remove", value="""☑**Command:** /layout_for
                                                                     🎶**Return:** The image Resize for fit in the banner and pfp for the choosen social media
@@ -116,9 +107,8 @@ def Commands_Page3():
                                                                     🎶**Return:** From The Banner, **return** any transformation you choose (must be Nitro User)
                                                                     💨**Steps:** Recover image (member interact) -> Transform panel (btn) -> Result (btn)
                                                                 """, inline=False)
-    embed_commands_page3.set_footer(
-        text="Command /help for regular and terms helps, Command /help_404 for not found or response errors")
-    embed_commands_page3.set_thumbnail(
-        url="https://res.cloudinary.com/diegato/image/upload/e_contrast:50/e_saturation:-40/v1/Bot/Testing-1q:av_up")
+    embed_commands_page3.set_footer(text="Command /help for regular and terms helps, Command /help_404 for not found or response errors")
+    
+    embed_commands_page3.set_thumbnail(url="https://res.cloudinary.com/diegato/image/upload/e_contrast:50/e_saturation:-40/v1/Bot/Testing-1q:av_up")
 
     return embed_commands_page3

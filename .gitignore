@@ -1,7 +1,6 @@
 # See .env.sample to guide about an example of the .env file
 .env
 env
-test.py
-*.pas
-
 __pycache__
+
+constants

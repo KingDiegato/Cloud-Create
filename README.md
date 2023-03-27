@@ -123,10 +123,6 @@ Where **/whitify** is the call to action **drag** is the file form directory or 
 
 Effect: This effect lowered the color and saturation and give a white bright light to the skin and the enviroment.
 
-Example Result:
-
-<image src='https://images-ext-2.discordapp.net/external/izyW6gMMuthnYASMV8XSjUZGWAk1SlJhdTSLiE718lM/https/res.cloudinary.com/diegato/image/upload/e_contrast%3A50/e_saturation%3A-40/v1/Bot/f.png.png?width=901&height=676'>
-
 ## Black'n'White
 
 This feature use Drag'n'drop to upload files in the input of the Discord chat, the command to the action is:

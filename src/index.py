@@ -8,10 +8,23 @@ import time
 
 # Local Imports
 # ==========================================================================================================================
-from classes import AvView, BlackAndWhite, EmojiSizing, SepiaEffect, HighContrast, WhiteColor, Texturized
-from classes import ColorFul, BgRemoval, Silhouette, TextOverlay, LayoutFor, Cartoonify, ColorBurn, TwoSilhouette
 from embeds.helper import Command_Embeded
 from modules.module import Link, Pagination
+
+from classMod.Avatar import AvView
+from classMod.BlackWhite import BlackAndWhite
+from classMod.Emoji import EmojiSizing
+from classMod.Sepia import SepiaEffect
+from classMod.contrast import HighContrast
+from classMod.Whitify import WhiteColor
+from classMod.colorful import ColorFul
+from classMod.Cartoon import Cartoonify
+from classMod.Burn import ColorBurn
+from classMod.background import BgRemoval
+from classMod.Silhouette import Silhouette, TwoSilhouette
+from classMod.Overlay import TextOverlay
+from classMod.Layout import LayoutFor
+from classMod.Texture import Texturized
 # ==========================================================================================================================
 # End Local Imports
 
@@ -19,11 +32,7 @@ from modules.module import Link, Pagination
 # ================================
 from discord.ext import commands
 
-from discord import Interaction
-
-from discord import Member
-
-from discord import *
+from discord import Interaction, Member, app_commands
 
 from discord.app_commands import Choice
 
@@ -31,7 +40,6 @@ from discord.app_commands import Choice
 # ==============================
 import cloudinary
 from cloudinary.uploader import upload
-from cloudinary.uploader import upload_large
 
 dotenv.load_dotenv()
 
@@ -385,16 +393,6 @@ async def layout_for(interaction: Interaction, pfp_drag: discord.message.Attachm
     await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
 
-'''
-Background Removal Effect! 🧨✨🎉
-
-Transform the Image with a Black & White filter when you call the interaction.
-
-This is an unnestable service cause The image is pretty slow to load and the interaction with discord timeout the function
-when 3.5 segs passes and the image usually load in 20-30 seconds
-'''
-
-
 #! Remove Background
 @bot.tree.command(name='background_remove', description='Upload an image and Remove the Background')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image")
@@ -419,12 +417,12 @@ async def background_remove(interaction: Interaction, drag: discord.message.Atta
 
 # End of Bg Removal Effect Command
 
-'''
-Silhouette Color Effect! 🧨✨🎉
 
-Transform the Image with a Black & White filter when you call the interaction.
-'''
-ColorChoices = app_commands.choices(choice_color=[
+# Silhouette Color Effect! 🧨✨🎉
+
+# Transform the Image with a Black & White filter when you call the interaction.
+
+color_choices = app_commands.choices(choice_color=[
     Choice(name='Red     🟥', value='#CF2C2C'),
     Choice(name='Yellow  🟨', value='#FFF900'),
     Choice(name='Lime    🟩', value='#5EA031'),
@@ -436,7 +434,7 @@ ColorChoices = app_commands.choices(choice_color=[
     Choice(name='Blue    🔵', value='#09f'),
     Choice(name='Black   ⚫', value='#121212')
 ])
-ColorChoices_2 = app_commands.choices(choice_color_two=[
+color_choices_2 = app_commands.choices(choice_color_two=[
     Choice(name='Red     🟥', value='#CF2C2C'),
     Choice(name='Yellow  🟨', value='#FFF900'),
     Choice(name='Lime    🟩', value='#5EA031'),
@@ -453,7 +451,7 @@ ColorChoices_2 = app_commands.choices(choice_color_two=[
 #! Color Silhouette
 @bot.tree.command(name='color_silhouette', description='Upload an image to apply a cool Colorized Effect')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
-@ColorChoices
+@color_choices
 async def color_silhouette(interaction: Interaction, drag: discord.message.Attachment, choice_color: Choice[str], description: str | None):
     file_name = drag.filename
     view = Link() and Silhouette(file_name, choice_color.value)
@@ -477,8 +475,8 @@ async def color_silhouette(interaction: Interaction, drag: discord.message.Attac
 #! Two Color Silhouette
 @bot.tree.command(name='two_color_silhouette', description='Upload an image to apply a cool Colorized Effect')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
-@ColorChoices
-@ColorChoices_2
+@color_choices
+@color_choices_2
 async def two_color_silhouette(interaction: Interaction, drag: discord.message.Attachment, choice_color: Choice[str], choice_color_two: Choice[str], description: str | None):
     file_name = drag.filename
     view = Link() and TwoSilhouette(file_name, choice_color.value,
