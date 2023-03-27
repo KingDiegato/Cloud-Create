@@ -7,9 +7,13 @@ from modules.module import Link
 from datetime import datetime
 
 class WhiteColor(View):
+  
+    transforms = [{'effect': "contrast:30"}, {'effect': "saturation:-30"}, {'effect': "brightness:30"}, {'quality': "auto"}]
+    
     def __init__(self, file_name):
         super().__init__()
         self.file_name = file_name
+        
 
     @button(label='Transform! ✨', style=ButtonStyle.blurple)
     async def white_color_model(self, interaction: Interaction, button: Button):
@@ -21,7 +25,7 @@ class WhiteColor(View):
             color=Color.random(),
         )
         image_tag = CloudinaryImage(
-            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "contrast:30"}, {'effect': "saturation:-30"}, {'effect': "brightness:30"}, {'quality': "auto"}])
+            f"Bot/{self.file_name}.png").build_url(transformation=self.transforms)
         embed.set_image(url=image_tag)
         link_view.add_item(Button(label='Download ✨',
                                              style=ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))

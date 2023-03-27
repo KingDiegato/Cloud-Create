@@ -3,7 +3,6 @@ from discord import Interaction, ButtonStyle, Embed, Color
 from datetime import datetime
 from cloudinary import CloudinaryImage
 from modules.module import Link
-from classMod.TransformView import TransformAvView
 
 class ColorFul(View):
     def __init__(self, file_name):
