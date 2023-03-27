@@ -7,25 +7,26 @@ import datetime
 import time
 
 # Local Imports
-# ==========================================================================================================================
-from embeds.helper import Command_Embeded
-from modules.module import Link, Pagination
-
-from classMod.Avatar import AvView
-from classMod.BlackWhite import BlackAndWhite
-from classMod.Emoji import EmojiSizing
-from classMod.Sepia import SepiaEffect
-from classMod.contrast import HighContrast
-from classMod.Whitify import WhiteColor
-from classMod.colorful import ColorFul
-from classMod.Cartoon import Cartoonify
-from classMod.Burn import ColorBurn
-from classMod.background import BgRemoval
-from classMod.Silhouette import Silhouette, TwoSilhouette
-from classMod.Overlay import TextOverlay
-from classMod.Layout import LayoutFor
-from classMod.Texture import Texturized
-# ==========================================================================================================================
+# =========================================================╗
+###########################################################║
+from embeds.helper import Command_Embeded                 #║
+from modules.module import Link, Pagination               #║
+from classMod.Avatar import AvView                        #║
+from classMod.BlackWhite import BlackAndWhite             #║
+from classMod.Emoji import EmojiSizing                    #║
+from classMod.Sepia import SepiaEffect                    #║
+from classMod.contrast import HighContrast                #║
+from classMod.Whitify import WhiteColor                   #║
+from classMod.colorful import ColorFul                    #║
+from classMod.Cartoon import Cartoonify                   #║
+from classMod.Burn import ColorBurn                       #║
+from classMod.background import BgRemoval                 #║
+from classMod.Silhouette import Silhouette, TwoSilhouette #║
+from classMod.Overlay import TextOverlay                  #║
+from classMod.Layout import LayoutFor                     #║
+from classMod.Texture import Texturized                   #║
+###########################################################║
+# =========================================================╝
 # End Local Imports
 
 # Import Discord Specifications
