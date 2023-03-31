@@ -196,14 +196,9 @@ async def sepia_effect(interaction: Interaction, drag: discord.message.Attachmen
 
 # End of Sepia Effect Command
 
-'''
-B&W Effect
-
-Transform the Image with a Black & White filter when you call the interaction.
-'''
-
 
 #! Black and White
+# Transform the Image with a Black & White filter when you call the interaction.
 @bot.tree.command(name='black_and_white', description='Upload an image and transform to Black and White')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image")
 async def black_and_white(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
@@ -232,14 +227,9 @@ async def black_and_white(interaction: Interaction, drag: discord.message.Attach
 
 # End of B&W Effect Command
 
-'''
-High Contrast Effect 
-
-Transform the Image and intensify the contrast but equals the saturation.
-'''
-
 
 #! High Contrast
+#Transform the Image and intensify the contrast but equals the saturation.
 @bot.tree.command(name='high_contrast', description='Upload an image to highly contrast it without saturation problem')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image")
 async def high_contrast(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
@@ -263,14 +253,9 @@ async def high_contrast(interaction: Interaction, drag: discord.message.Attachme
 
 # End of HighContrast Effect Command
 
-'''
-Whitify Effect 
-
-Transform the Image with a Black & White filter when you call the interaction.
-'''
-
 
 #! Whitify
+# Transform the Image with a Black & White filter when you call the interaction.
 @bot.tree.command(name='whitify', description='Upload an image and Scale this to become More Clear')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image")
 async def whitify(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
@@ -294,14 +279,9 @@ async def whitify(interaction: Interaction, drag: discord.message.Attachment, de
 
 # End of Whitify Effect Command
 
-'''
-ColorFul Effect 
-
-Transform the Image with a Black & White filter when you call the interaction.
-'''
-
 
 #! Colorful
+# Transform the Image with a Black & White filter when you call the interaction.
 @bot.tree.command(name='colorful', description='Upload an image and create a colorful effect over your file')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image")
 async def colorful(interaction: Interaction, drag: discord.message.Attachment, description: str | None):
