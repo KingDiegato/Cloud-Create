@@ -13,7 +13,7 @@ async def ping(interaction: Interaction):
     start_time = time.time()
     await asyncio.sleep(0.1)
     measured_time = time.time() - start_time
-    end = round(measured_time * 1000)
+    end = round(measured_time * 600)
     if latency < 250:
         color = discord.Color.blue()
     elif latency < 450:
