@@ -37,6 +37,18 @@ from discord import Interaction, Member, app_commands
 
 from discord.app_commands import Choice
 
+from core import bot
+
+# ==============================================================╗
+################################################################║
+from commands.pingCommand import *                             #║
+from commands.avCommand   import *                             #║
+################################################################║
+# ==============================================================╝
+
+
+
+
 # Import the Cloudinary libraries
 # ==============================
 import cloudinary
@@ -66,10 +78,6 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
-bot = commands.Bot(command_prefix='$', intents=intents, status=discord.Status.online, activity=discord.Activity(
-    type=discord.ActivityType.watching, name='Art Attack', details='About to create a new colorful world, and bring a big experience to your images'))  # Prefijo del bot
-
-
 @bot.event
 async def on_ready():
     print('='*40)
@@ -90,33 +98,6 @@ async def pineado(interaction: Interaction, nombre: Member):
     await interaction.response.send_message(nombre.mention)
 
 
-#! Ping
-@bot.tree.command(name='ping', description='Check Latency with the Bot')
-async def ping(interaction: Interaction):
-    latency = round(bot.latency * 1000)
-    start_time = time.time()
-    await asyncio.sleep(0.1)
-    measured_time = time.time() - start_time
-    end = round(measured_time * 1000)
-    if latency < 250:
-        color = discord.Color.blue()
-    elif latency < 450:
-        color = discord.Color.green()
-    elif latency < 600:
-        color = discord.Color.orange()
-    elif latency < 800:
-        color = discord.Color.red()
-    else:
-        color = discord.Color.dark_red()
-
-    embed = discord.Embed(title=f":ping_pong: Pong!",
-                          color=color, timestamp=datetime.datetime.utcnow())
-    embed.add_field(name="Websocket",
-                    value=f"```json\n{latency} ms```", inline=False)
-    embed.add_field(
-        name="Typing", value=f"```json\n{end} ms```", inline=False)
-    await interaction.response.send_message(embed=embed)
-
 av_remove_bg_option = discord.SelectOption(label='Remove Background', value='background_removal',
                                            description="remove the background of your pfp, note: doesn't work with no background images.")
 av_silhouete_option = discord.SelectOption(label='Color Silhouette', value='color_silhouette',
@@ -126,23 +107,7 @@ av_whitify_option = discord.SelectOption(label='Whitify', value='whitify',
 
 
 #! Avatar recover interaction [/av]
-@bot.tree.command(name='av', description='Obtener el Avatar')
-async def av(interaction: Interaction, member: Member):
-    '''
-    Command Avatar View
-    '''
-    try:
-        av_view = AvView(member.name)
-        show_avatar = discord.Embed(
-            title=f'Avatar de {member.name}',
-            description='🌟☁ Lets Transform it ☁🌟',
-            color=discord.Color.random(),
-        )
-        show_avatar.set_image(url=member.avatar)
-        upload(f"{member.avatar}", public_id=f'Bot/{member.name}q:av_up')
-        await interaction.response.send_message(embed=show_avatar, view=av_view)
-    except:
-        await interaction.response.send_message("CEO Avatar cannot be uploaded")
+
 
 
 #! Banner
