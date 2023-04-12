@@ -1,7 +1,6 @@
 from core import bot
 from discord import  Interaction,  Embed, Color
 
-from cloudinary.uploader import upload
 from embeds.helper import Command_Embeded
 from modules.module import Pagination
 

@@ -1,5 +1,5 @@
 from core import bot
-from discord import app_commands, Interaction, message, Embed, Color, ui, ButtonStyle
+from discord import app_commands, Interaction, message, Embed, Color
 from classMod.Texture import Texturized
 from discord.app_commands import Choice
 
