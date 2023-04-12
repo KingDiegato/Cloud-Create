@@ -16,7 +16,7 @@ def colorify(color: str) -> list:
   * {color: str} in Hexadecimal
   '''
   return [{'effect': "blackwhite:39"}, {'color': f"{color}", 'effect': "colorize:50"}, {'effect': "brightness:30"}]
-  
+
 
 embed_transformed = Embed(timestamp=datetime.utcnow())
 embed_transformed.title = 'Silhouette {color} edition! By Cloudinary 🌟'
@@ -149,7 +149,8 @@ class SilhouettePanel(View):
         embed_transformed.set_image(url=image_transform)
         
         await interaction.response.edit_message(embed=embed_transformed, view=download_link)
-    
+
+
 class Silhouette(View):
     def __init__(self, file_name, choice_color):
         super().__init__()
@@ -173,8 +174,8 @@ class Silhouette(View):
         link_view.add_item(Button(label='Download ✨',
                                              style=ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
         await interaction.response.send_message(embed=embed, view=link_view)
-        
-        
+
+
 class TwoSilhouette(View):
     def __init__(self, file_name, choice_color, choice_color_2, width):
         super().__init__()
