@@ -13,6 +13,7 @@ async def high_contrast(interaction: Interaction, drag: message.Attachment, desc
     try:
         file_name = drag.filename
         view = Link() and HighContrast(file_name)
+        await interaction.response.defer()
         embed = Embed(
             title=f'Picture fetched by: {interaction.user}',
             description=description or 'Prepare for edit the next Image:',
@@ -24,8 +25,12 @@ async def high_contrast(interaction: Interaction, drag: message.Attachment, desc
 
         view.add_item(ui.Button(label='See on the Browser',
                                         style=ButtonStyle.url, url='{}'.format(drag)))
-        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        await interaction.followup.send(embed=embed, view=view, ephemeral=True)
     except:
-        await interaction.response.send_message("Command Not Found, please Try Again in a few seconds, type /help_404 to see more info")
-
-# End of HighContrast Effect Command
+        error_embed = Embed(
+            title=f'Sorry {interaction.user}',
+            description="Command Not Found, please Try Again in a few seconds, type /help_404 to see more info",
+            color=Color.random(),
+        )
+        await interaction.followup.send(embed=error_embed)
+        

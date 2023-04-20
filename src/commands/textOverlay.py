@@ -37,18 +37,27 @@ from cloudinary.uploader import upload
     Choice(name='Plain', value='plain')
 ])
 async def text_overlay(interaction: Interaction, drag: message.Attachment,  font: Choice[str], text: str, font_size: int, position: Choice[str], color: Choice[str], effect: Choice[str]):
-    file_name = drag.filename
-    view = Link() and TextOverlay(file_name, font.value,
-                                  text, font_size, position.value, color.value, effect.value)
-    embed = Embed(
-        title=f'Picture fetched by: {interaction.user}',
-        description=f'Prepare to write {text} over the image',
-        color=Color.random(),
-    )
-    embed.set_image(url='{}'.format(drag))
-    embed.set_thumbnail(url=interaction.user.avatar)
-    upload(drag.url, public_id=f'Bot/{file_name}')
+    try:
+        file_name = drag.filename
+        view = Link() and TextOverlay(file_name, font.value,
+                                    text, font_size, position.value, color.value, effect.value)
+        await interaction.response.defer()
+        embed = Embed(
+            title=f'Picture fetched by: {interaction.user}',
+            description=f'Prepare to write {text} over the image',
+            color=Color.random(),
+        )
+        embed.set_image(url='{}'.format(drag))
+        embed.set_thumbnail(url=interaction.user.avatar)
+        upload(drag.url, public_id=f'Bot/{file_name}')
 
-    view.add_item(ui.Button(label='See on the Browser',
-                                    style=ButtonStyle.url, url='{}'.format(drag)))
-    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        view.add_item(ui.Button(label='See on the Browser',
+                                        style=ButtonStyle.url, url='{}'.format(drag)))
+        await interaction.followup.send(embed=embed, view=view, ephemeral=True)
+    except:
+        error_embed = Embed(
+            title=f'Sorry {interaction.user}',
+            description="Command Not Found, please Try Again in a few seconds, type /help_404 to see more info",
+            color=Color.random(),
+        )
+        await interaction.followup.send(embed=error_embed)

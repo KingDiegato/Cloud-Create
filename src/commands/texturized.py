@@ -20,15 +20,24 @@ from cloudinary.uploader import upload
     Choice(name='Concrete', value='concrete')
 ])
 async def texturize(interaction: Interaction, drag: message.Attachment, strength: Choice[int], effect: Choice[str], description: str | None):
-    user_name = interaction.user.name
-    view = Texturized(user_name, drag.url, drag.size,
-                      strength.value, effect.value)
-    embed = Embed(
-        title=f'Picture Upload by: {interaction.user}',
-        description=f'Prepare for add a texture to this image for a social media' or description,
-        color=Color.random(),
-    )
-    embed.set_image(url='{}'.format(drag))
-    upload(drag.url,
-           public_id=f'Bot/{user_name}_texturized{drag.size}')
-    await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+    try:
+        user_name = interaction.user.name
+        view = Texturized(user_name, drag.url, drag.size,
+                                    strength.value, effect.value)
+        await interaction.response.defer()
+        embed = Embed(
+            title=f'Picture Upload by: {interaction.user}',
+            description=f'Prepare for add a texture to this image for a social media' or description,
+            color=Color.random(),
+        )
+        embed.set_image(url='{}'.format(drag))
+        upload(drag.url,
+            public_id=f'Bot/{user_name}_texturized{drag.size}')
+        await interaction.followup.send(embed=embed, view=view, ephemeral=True)
+    except:
+        error_embed = Embed(
+            title=f'Sorry {interaction.user}',
+            description="Command Not Found, please Try Again in a few seconds, type /help_404 to see more info",
+            color=Color.random(),
+        )
+        await interaction.followup.send(embed=error_embed)
