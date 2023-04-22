@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mar 2, 2023
+
+@author: Diegato
+"""
+
+
 import os
 import discord
 import dotenv
