@@ -4,15 +4,19 @@ from datetime import datetime
 from cloudinary import CloudinaryImage
 from classMod.TransformView import TransformAvView
 
+from utils.randomString import get_random_string
+
 class AvView(View):
-    def __init__(self, name):
+    def __init__(self, name, query):
         super().__init__()
         self.name = name
+        self.query = query
 
     @button(label='Yes! transform it ✨', style=ButtonStyle.primary)
     async def av_select_transform(self, interaction: Interaction, button: Button):
         av_username = self.name
-        transformation_view = TransformAvView(av_username)
+        transformation_view = TransformAvView(av_username, self.query)
+        
        
         print(av_username)
         embed_prev_img = Embed(
@@ -21,7 +25,7 @@ class AvView(View):
             description='Select any options and see inmediately results'
         )
         image_transform = CloudinaryImage(
-            f'Bot/{av_username}q:av_up').build_url(transformation=[{'effect': "blur:1500"}])
+            f'Bot/{av_username}q:av_up{self.query}').build_url(transformation=[{'effect': "blur:1500"}])
         embed_prev_img.set_image(url=image_transform)
 
         await interaction.response.send_message(embed=embed_prev_img, view=transformation_view)

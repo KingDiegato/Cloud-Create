@@ -22,9 +22,6 @@ async def two_color_silhouette(interaction: Interaction, drag: message.Attachmen
             description=description or 'Prepare for edit the next Image:',
             color=Color.random(),
         )
-        print(drag.content_type)
-        print(drag.size)
-        print(drag.width)
         embed.set_image(url='{}'.format(drag))
         embed.set_thumbnail(url=interaction.user.avatar)
         upload(drag.url, public_id=f'Bot/{file_name}')

@@ -60,9 +60,22 @@ class Force(View):
         force_embed.set_image(url=self.image_tag)
         button.disabled = True
         await interaction.response.send_message(embed=force_embed, view=watching, ephemeral=False)
-        await interaction.message.edit(view=self)
         await asyncio.sleep(30)
         button.disabled = False
+
+class Force2(View):
+    def __init__(self, image_tag):
+        super().__init__()
+        self.image_tag = image_tag
+        self.value = None
+        
+    @button(label='Load Image', style=ButtonStyle.success)
+    async def force_image_load(self, interaction: Interaction, button: Button):
+        button.disabled = True        
+        watching = Link()
+        watching.add_item(Button(label='Download Transformed',
+                                            style=ButtonStyle.url, url=self.image_tag))
+        await interaction.response.send_message(view=watching, ephemeral=False, content=self.image_tag)
 
 
 class Pagination(View):
