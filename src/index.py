@@ -80,5 +80,5 @@ async def init(ctx):
 async def pineado(interaction: Interaction, nombre: Member):
     await interaction.response.send_message(nombre.mention)
 
-
+print(TOKEN)
 bot.run(TOKEN)
