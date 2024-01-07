@@ -6,3 +6,7 @@ __pycache__
 constants
 
 test
+
+dist
+build
+index.spec

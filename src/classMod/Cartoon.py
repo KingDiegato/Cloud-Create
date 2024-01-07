@@ -21,7 +21,7 @@ class Cartoonify(View):
             color=Color.random(),
         )
         image_tag = CloudinaryImage(
-            f"Bot/cartony_{self.file_name}.png").build_url(transformation=[{'effect': "contrast:-30"}, {'effect': "cartoonify"}, {'effect': "saturation:-30"}, {'effect': "brightness:10"}, {'effect': "improve:outdoor:50"}, {'quality': "auto"}])
+            f"Bot/cartony_{self.file_name}.png").build_url(transformation=[{'effect': "contrast:-50"}, {'effect': "cartoonify"}, {'effect': "saturation:-10"}, {'effect': "improve:outdoor:50"}, {'quality': "auto"}])
 
         embed.set_image(url=image_tag)
         link_view.add_item(Button(label='Download ✨',

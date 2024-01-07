@@ -2,7 +2,7 @@ from core import bot
 from discord import Embed, Color, Interaction, message, ui, ButtonStyle, app_commands
 from modules.module import Link
 from cloudinary.uploader import upload
-from commands.silhouetteConstants import color_choices
+from commands.silhouetteConstants import color_choices, strength
 
 from classMod.Silhouette import Silhouette
 
@@ -10,10 +10,11 @@ from classMod.Silhouette import Silhouette
 @bot.tree.command(name='color_silhouette', description='Upload an image to apply a cool Colorized Effect')
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
 @color_choices
-async def color_silhouette(interaction: Interaction, drag: message.Attachment, choice_color: app_commands.Choice[str], description: str | None):
+@strength
+async def color_silhouette(interaction: Interaction, drag: message.Attachment, choice_color: app_commands.Choice[str], strength: app_commands.Choice[str], description: str | None ):
     try:
         file_name = drag.filename
-        view = Link() and Silhouette(file_name, choice_color.value)
+        view = Link() and Silhouette(file_name, choice_color.value, strength.value)
         await interaction.response.defer()
         embed = Embed(
             title=f'Picture fetched by: {interaction.user}',

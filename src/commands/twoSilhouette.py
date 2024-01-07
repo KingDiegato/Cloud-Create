@@ -11,11 +11,12 @@ from classMod.Silhouette import TwoSilhouette
 @app_commands.describe(drag="drag'n' drop a file or upload from directory", description="a description for the image", choice_color='a color for the effect, Is Required')
 @color_choices
 @color_choices_2
-async def two_color_silhouette(interaction: Interaction, drag: message.Attachment, choice_color: Choice[str], choice_color_two: Choice[str], description: str | None):
+@strength
+async def two_color_silhouette(interaction: Interaction, drag: message.Attachment, choice_color: Choice[str], choice_color_two: Choice[str],  strength: Choice[str], description: str | None):
     try:
         file_name = drag.filename
         view = Link() and TwoSilhouette(file_name, choice_color.value,
-                                        choice_color_two.value, drag.width)
+                                        choice_color_two.value, drag.width, strength.value)
         await interaction.response.defer()
         embed = Embed(
             title=f'Picture fetched by: {interaction.user}',

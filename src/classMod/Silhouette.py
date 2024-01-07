@@ -10,12 +10,12 @@ from cloudinary import CloudinaryImage
 
 from discord.ui import View, button, Button
 
-def colorify(color: str) -> list:
+def colorify(color: str, strength: int = 39) -> list:
   '''
   Return a list with the transformation Parameters
   * {color: str} in Hexadecimal
   '''
-  return [{'effect': "blackwhite:39"}, {'color': f"{color}", 'effect': "colorize:50"}, {'effect': "brightness:30"}]
+  return [{'effect': f"blackwhite:{strength}"}, {'color': f"{color}", 'effect': "colorize:50"}, {'effect': "brightness:30"}]
 
 
 embed_transformed = Embed(timestamp=datetime.utcnow())
@@ -152,10 +152,11 @@ class SilhouettePanel(View):
 
 
 class Silhouette(View):
-    def __init__(self, file_name, choice_color):
+    def __init__(self, file_name, choice_color, strength):
         super().__init__()
         self.file_name = file_name
         self.choice_color = choice_color
+        self.strength = strength
 
     @button(label='Transform! ✨', style=ButtonStyle.blurple)
     async def colorful_model(self, interaction: Interaction, button: Button):
@@ -169,7 +170,7 @@ class Silhouette(View):
             color=Color.random(),
         )
         image_tag = CloudinaryImage(
-            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': "blackwhite:39"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}, {'quality': "auto"}])
+            f"Bot/{self.file_name}.png").build_url(transformation=[{'effect': f"blackwhite:{self.strength}"}, {'color': self.choice_color, 'effect': "colorize:50"}, {'effect': "brightness:30"}, {'quality': "auto"}])
         embed.set_image(url=image_tag)
         link_view.add_item(Button(label='Download ✨',
                                              style=ButtonStyle.url, url=image_tag, emoji="<a:vibing:747680206734622740>"))
@@ -177,12 +178,13 @@ class Silhouette(View):
 
 
 class TwoSilhouette(View):
-    def __init__(self, file_name, choice_color, choice_color_2, width):
+    def __init__(self, file_name, choice_color, choice_color_2, width, strength):
         super().__init__()
         self.file_name = file_name
         self.choice_color = choice_color
         self.choice_color_2 = choice_color_2
         self.width = width
+        self.strength = strength
 
     @button(label='Transform! ✨', style=ButtonStyle.blurple)
     async def colorful_model(self, interaction: Interaction, button: Button):
@@ -199,13 +201,13 @@ class TwoSilhouette(View):
             f"Bot/{self.file_name}.png").build_url(transformation=[
                 {'gravity': "west", 'height': "1.0",
                     'width': "0.5", 'crop': "crop"},
-                {'effect': "blackwhite:69"},
+                {'effect': f"blackwhite:{self.strength}"},
                 {'color': self.choice_color, 'effect': "colorize:50"},
                 {'effect': "brightness:30"},
                 {'overlay': f"Bot:{self.file_name}.png"},
                 {'gravity': "east", 'height': "1.0",
                     'width': "0.5", 'crop': "crop"},
-                {'effect': "blackwhite:69"},
+                {'effect': f"blackwhite:{self.strength}"},
                 {'color': self.choice_color_2, 'effect': "colorize:30"},
                 {'effect': "brightness:30"},
                 {'flags': "layer_apply", 'gravity': "east",

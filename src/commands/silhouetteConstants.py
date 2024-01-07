@@ -25,3 +25,9 @@ color_choices_2 = app_commands.choices(choice_color_two=[
     Choice(name='Blue    🔵', value='#09f'),
     Choice(name='Black   ⚫', value='#121212')
 ])
+
+strength = app_commands.choices(strength=[
+    Choice(name='Weak', value='15'),
+    Choice(name='Moderate', value='25'),
+    Choice(name='Strong', value='40')
+])
