@@ -17,7 +17,6 @@ class AvView(View):
         av_username = self.name
         transformation_view = TransformAvView(av_username, self.query)
         
-       
         print(av_username)
         embed_prev_img = Embed(
             timestamp=datetime.utcnow(),
