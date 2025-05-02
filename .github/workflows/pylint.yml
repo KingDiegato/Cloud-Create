@@ -9,7 +9,6 @@ jobs:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
     steps:
-    - uses: actions/upload-artifact@v3
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
@@ -22,9 +21,3 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py') --output=lint.txt || true
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: lint.txt
-        path: lint.txt
