@@ -3,6 +3,11 @@
 Created on Mar 2, 2023
 
 @author: Diegato
+
+Recovering the PROJECT
+
+TODO: apply pylint and conventions for python 3.10 ...
+TODO: create a .pyi (interface directory) for each class
 """
 
 
