@@ -18,6 +18,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pylint
-    - name: Analysing the code with pylint
+    - name: Analysing the code with pylint looking for errors
+      run: |
+        # break if errors in code exist
+        pylint $(git ls-files '*.py') -errors-only
+    - name: Analysing the code with pylint looking for warnings
       run: |
         pylint $(git ls-files '*.py') --exit-zero
