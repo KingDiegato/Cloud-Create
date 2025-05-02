@@ -21,7 +21,7 @@ jobs:
     - name: Analysing the code with pylint looking for errors
       run: |
         # break if errors in code exist
-        pylint $(git ls-files '*.py') -errors-only
+        pylint $(git ls-files '*.py') --errors-only
     - name: Analysing the code with pylint looking for warnings
       run: |
         pylint $(git ls-files '*.py') --exit-zero
