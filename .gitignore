@@ -10,3 +10,4 @@ test
 dist
 build
 index.spec
+.venv
