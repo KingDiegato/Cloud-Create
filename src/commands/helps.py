@@ -1,12 +1,12 @@
-from core import bot
 from discord import  Interaction,  Embed, Color
 
+from core import bot
 from embeds.helper import Command_Embeded
 from modules.module import Pagination
 
 #! Help Global Helps
 @bot.tree.command(name='help', description='Help About The usage of the bot')
-async def help(interaction: Interaction):
+async def help1(interaction: Interaction):
     embed_help = Embed(
         title=f"General Help for bot interaction, (for command help type /help_command)",
         description=f'''About the Cloud Create Bot: 

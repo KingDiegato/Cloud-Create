@@ -10,39 +10,17 @@ TODO: apply pylint and conventions for python 3.10 ...
 TODO: create a .pyi (interface directory) for each class
 """
 
-
 import os
+import importlib
 import discord
 import dotenv
+import cloudinary
 
 from core import bot
 
-# =======================================================╗
-#########################################################║
-from commands.ping                  import *           # ║
-from commands.av                    import *           # ║
-from commands.banner                import *           # ║
-from commands.sepia                 import *           # ║
-from commands.whitify               import *           # ║
-from commands.blackAndWhite         import *           # ║
-from commands.highContrast          import *           # ║
-from commands.colorful              import *           # ║
-from commands.cartoonify            import *           # ║
-from commands.colorBurn             import *           # ║
-from commands.layout                import *           # ║
-from commands.removeBackground      import *           # ║
-from commands.oneSilhouette         import *           # ║
-from commands.twoSilhouette         import *           # ║
-from commands.emoji                 import *           # ║  
-from commands.textOverlay           import *           # ║
-from commands.texturized            import *           # ║
-from commands.helps                 import *           # ║
-#########################################################║
-# =======================================================╝
-
-# Import the Cloudinary libraries
-# ==============================
-import cloudinary
+for filename in os.listdir("./src/commands"):
+    if filename.endswith(".py") and not filename.startswith("__"):
+        importlib.import_module(f"commands.{filename[:-3]}")
 
 dotenv.load_dotenv()
 
@@ -69,21 +47,32 @@ client = discord.Client(intents=intents)
 
 @bot.event
 async def on_ready():
+    """
+      when system is on ready, execute the next line:
+    """
     print("=" * 40)
     print("Online!")
     print("=" * 40)
+    await bot.wait_until_ready()
     await bot.tree.sync()
+    print("bot tree synced")
 
 
 @bot.command()
 async def init(ctx):
+    """
+      force tree command to init
+    """
+    print("forcing syncing")
     await bot.tree.sync()
     await ctx.reply("Done!")
 
 
 @bot.tree.command(name="pineado", description="Llama a una persona por su tag")
-async def pineado(interaction: Interaction, nombre: Member):
+async def pineado(interaction: discord.Interaction, nombre: discord.Member):
+    """
+      pin the user mentioned
+    """
     await interaction.response.send_message(nombre.mention)
 
-print(TOKEN)
 bot.run(TOKEN)
