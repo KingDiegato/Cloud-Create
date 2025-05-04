@@ -1,9 +1,10 @@
+"""check ping in ms"""
 import time
 import datetime
 
-from core import bot
-
 from discord import Interaction, Embed, Color
+
+from core import bot
 
 color_cases = [
     {"latency": 250, "color": Color.blue()},
@@ -16,17 +17,22 @@ color_cases = [
 
 @bot.tree.command(name='ping', description='Check Latency with the Bot')
 async def ping(interaction: Interaction):
-    latency = round(bot.latency * 1000)
+    """calculate latency and return time in ms of the response of websocket"""
     start_time = time.time()
     await interaction.response.defer()
+    latency = round(bot.latency * 1000)
     measured_time = time.time() - start_time
     end = round(measured_time * 100)
-    
+
     filtered = [elem for elem in color_cases if elem["latency"] >= latency]
     color = filtered[0]["color"]
 
-    embed = Embed(title=f":ping_pong: Pong!",color=color, timestamp=datetime.datetime.utcnow())
+    embed = Embed(
+      title=":ping_pong: Pong!",
+      color=color,
+      timestamp=datetime.datetime.now(datetime.timezone.utc)
+      )
     embed.add_field(name="Websocket", value=f"```json\n{latency} ms```", inline=False)
     embed.add_field(name="Typing", value=f"```json\n{end} ms```", inline=False)
-    
+
     await interaction.followup.send(embed=embed)
