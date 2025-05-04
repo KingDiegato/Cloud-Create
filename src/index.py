@@ -35,7 +35,6 @@ config = cloudinary.config(
     api_secret=CLOUD_API_SECRET,
     secure=True,
 )
-new = cloudinary.CloudinaryImage(public_id="bot/")
 
 TOKEN = os.getenv("TOKEN")
 
@@ -75,4 +74,5 @@ async def pineado(interaction: discord.Interaction, nombre: discord.Member):
     """
     await interaction.response.send_message(nombre.mention)
 
-bot.run(TOKEN)
+if __name__ == "__main__":
+    bot.run(TOKEN)
