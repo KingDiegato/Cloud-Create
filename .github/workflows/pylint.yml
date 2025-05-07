@@ -22,7 +22,14 @@ jobs:
     - name: Analysing the code with pylint looking for errors
       run: |
         # break if errors in code exist
-        pylint $(git ls-files '*.py') --errors-only
+        pylint $(git ls-files '*.py') --errors-only > pylint-errors.txt
     - name: Analysing the code with pylint looking for warnings
       run: |
-        pylint $(git ls-files '*.py') --exit-zero
+        pylint $(git ls-files '*.py') --exit-zero > pylint-warnings.txt
+    - name: Upload Pylint reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: pylint-reports
+        path: |
+          pylint-errors.txt
+          pylint-warnings.txt
