@@ -20,9 +20,10 @@ jobs:
         pip install pylint
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Analysing the code with pylint looking for errors
+      continue-on-error: true
       run: |
         # break if errors in code exist
-        pylint $(git ls-files '*.py') --errors-only --exit-zero > pylint-errors.txt
+        pylint $(git ls-files '*.py') --errors-only > pylint-errors.txt
     - name: Analysing the code with pylint looking for warnings
       run: |
         pylint $(git ls-files '*.py') --exit-zero > pylint-warnings.txt
