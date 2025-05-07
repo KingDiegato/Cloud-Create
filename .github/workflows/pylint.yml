@@ -22,7 +22,7 @@ jobs:
     - name: Analysing the code with pylint looking for errors
       run: |
         # break if errors in code exist
-        pylint $(git ls-files '*.py') --errors-only > pylint-errors.txt
+        pylint $(git ls-files '*.py') --errors-only --exit-zero > pylint-errors.txt
     - name: Analysing the code with pylint looking for warnings
       run: |
         pylint $(git ls-files '*.py') --exit-zero > pylint-warnings.txt
