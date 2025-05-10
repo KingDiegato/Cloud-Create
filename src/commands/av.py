@@ -4,7 +4,8 @@ from cloudinary.uploader import upload
 
 from utils.randomString import get_random_string
 
-from classMod.Avatar        import AvView                      
+from classMod.avatar import AvView
+
 
 @bot.tree.command(name='av', description='Obtener el Avatar')
 async def av(interaction: Interaction, member: Member):
@@ -27,4 +28,3 @@ async def av(interaction: Interaction, member: Member):
             color=Color.random(),
         )
         await interaction.followup.send(embed=error_embed)
-        

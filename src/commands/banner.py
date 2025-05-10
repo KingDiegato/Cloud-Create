@@ -5,7 +5,7 @@ from cloudinary.uploader import upload
 
 from utils.randomString import get_random_string
 
-from classMod.Avatar import AvView
+from classMod.avatar import AvView
 
 
 @bot.tree.command(name="banner", description="Obtener el Banner")
@@ -20,7 +20,8 @@ async def av(interaction: Interaction, member: Member):
             color=Color.random(),
         )
         show_banner.set_image(url=member.banner)
-        upload(f"{member.banner}", public_id=f"Bot/{member.name}qbanner_up{query}")
+        upload(f"{member.banner}",
+               public_id=f"Bot/{member.name}qbanner_up{query}")
         await interaction.followup.send(
             embed=show_banner,
             view=av_view,
